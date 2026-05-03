@@ -9,16 +9,16 @@ def validate_name_tool(name: str) -> dict:
     name = name.strip()
 
     if not name:
-        return {"valid": False, "error_type": "empty_name", "message": "Name cannot be empty."}
+        return {"valid": False, "error_type": "empty_name", "message": "Name cannot be empty."}  # ← CHANGED: was generic
 
     if any(char.isdigit() for char in name):
-        return {"valid": False, "error_type": "name_has_numbers", "message": "Name should not contain numbers."}
+        return {"valid": False, "error_type": "name_has_numbers", "message": "Names cannot contain numbers. Please enter letters only."}  # ← CHANGED: message more specific
 
     if len(name) < 2:
-        return {"valid": False, "error_type": "name_too_short", "message": "Name is too short."}
+        return {"valid": False, "error_type": "name_too_short", "message": "That name is too short. Please enter your full name."}  # ← CHANGED: message more specific
 
     if not re.match(r"^[a-zA-Z\s]+$", name):
-        return {"valid": False, "error_type": "special_characters", "message": "Name should only contain letters and spaces."}
+        return {"valid": False, "error_type": "special_characters", "message": "Names can only contain letters and spaces. No symbols or punctuation."}  # ← CHANGED: message more specific
 
     return {"valid": True, "error_type": None, "message": "Name is valid."}
 
@@ -29,22 +29,22 @@ def validate_email_tool(email: str) -> dict:
     email = email.strip()
 
     if not email:
-        return {"valid": False, "error_type": "empty_email", "message": "Email cannot be empty."}
+        return {"valid": False, "error_type": "empty_email", "message": "You didn't enter an email address."}  # ← CHANGED: more direct
 
     if "@" not in email:
-        return {"valid": False, "error_type": "missing_at", "message": "Email must contain @ symbol."}
+        return {"valid": False, "error_type": "missing_at_symbol", "message": f"'{email}' is missing the @ symbol. A valid email looks like name@example.com."}  # ← CHANGED: shows what they typed + example
 
     parts = email.split("@")
     if len(parts) != 2 or not parts[0]:
-        return {"valid": False, "error_type": "invalid_format", "message": "Invalid email format."}
+        return {"valid": False, "error_type": "invalid_format", "message": f"'{email}' is not a valid email format. It should look like name@example.com."}  # ← CHANGED: shows what they typed
 
     domain = parts[1]
     if "." not in domain:
-        return {"valid": False, "error_type": "missing_dot", "message": "Email domain must contain a dot."}
+        return {"valid": False, "error_type": "missing_dot_in_domain", "message": f"The domain part '{domain}' is missing a dot. It should look like gmail.com or yahoo.com."}  # ← CHANGED: explains domain part specifically
 
     domain_parts = domain.split(".")
     if not domain_parts[0] or not domain_parts[-1]:
-        return {"valid": False, "error_type": "invalid_format", "message": "Invalid email format."}
+        return {"valid": False, "error_type": "invalid_domain", "message": f"'{email}' has an incomplete domain. Try something like name@gmail.com."}  # ← CHANGED: more specific
 
     return {"valid": True, "error_type": None, "message": "Email is valid."}
 
@@ -55,12 +55,16 @@ def validate_phone_tool(phone: str) -> dict:
     phone = phone.strip()
 
     if not phone:
-        return {"valid": False, "error_type": "empty_phone", "message": "Phone number cannot be empty."}
+        return {"valid": False, "error_type": "empty_phone", "message": "You didn't enter a phone number."}  # ← CHANGED: more direct
 
     if not phone.isdigit():
-        return {"valid": False, "error_type": "not_digits", "message": "Phone number must contain only digits."}
+        return {"valid": False, "error_type": "contains_non_digits", "message": f"'{phone}' contains characters that are not digits. Please enter numbers only, like 9876543210."}  # ← CHANGED: shows input + example
 
     if len(phone) != 10:
-        return {"valid": False, "error_type": "wrong_length", "message": "Phone number must be exactly 10 digits."}
+        return {  # ← CHANGED: entire block — now tells them exactly how many digits they gave
+            "valid": False,
+            "error_type": "wrong_digit_count",
+            "message": f"You entered {len(phone)} digits, but a phone number must be exactly 10 digits. Please check and try again.",
+        }
 
     return {"valid": True, "error_type": None, "message": "Phone number is valid."}
