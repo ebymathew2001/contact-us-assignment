@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ContactBot — Admin Logs</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">ContactBot</div>
+    <div class="header-actions">
+      <a href="/" class="btn-icon">← Back to Home</a>
+    </div>
+  </header>
+
+  <div class="logs-container">
+    <h1 class="logs-title">Session Logs</h1>
+    <p class="logs-sub">All contact form sessions — click View to inspect details</p>
+
+    <table class="sessions-table">
+      <thead>
+        <tr>
+          <th>Session ID</th>
+          <th>Status</th>
+          <th>Created At</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="sessions-tbody"></tbody>
+    </table>
+
+    <div class="pagination">
+      <button class="page-btn" id="prev-btn" onclick="changePage(-1)" disabled>← Prev</button>
+      <span class="page-info" id="page-info">Page 1 of 1</span>
+      <button class="page-btn" id="next-btn" onclick="changePage(1)">Next →</button>
+    </div>
+  </div>
+
+  <!-- POPUP -->
+  <div class="popup-overlay" id="popup-overlay">
+    <div class="popup">
+      <div class="popup-top">
+        <span class="popup-session-id" id="popup-session-label">Session: —</span>
+        <button class="popup-close" onclick="closePopup()">✕</button>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('conversation', this)">Conversation</button>
+        <button class="tab-btn" onclick="switchTab('errors', this)">Errors</button>
+        <button class="tab-btn" onclick="switchTab('details', this)">Details</button>
+      </div>
+      <div class="tab-content active" id="tab-conversation"><div id="convo-body">Loading...</div></div>
+      <div class="tab-content" id="tab-errors"><div id="errors-body">Loading...</div></div>
+      <div class="tab-content" id="tab-details"><div id="details-body">Loading...</div></div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

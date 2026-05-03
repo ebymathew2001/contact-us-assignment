@@ -1,0 +1,842 @@
+2026-05-02 15:15:37,821 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-02 15:15:37,821 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-02 15:15:37,825 - INFO -  * Restarting with stat
+2026-05-02 15:15:39,709 - WARNING -  * Debugger is active!
+2026-05-02 15:15:39,712 - INFO -  * Debugger PIN: 144-142-816
+2026-05-02 15:17:44,719 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-02 15:17:44,740 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-02 15:17:44,742 - INFO -  * Restarting with stat
+2026-05-02 15:17:46,522 - WARNING -  * Debugger is active!
+2026-05-02 15:17:46,523 - INFO -  * Debugger PIN: 144-142-816
+2026-05-02 15:21:36,390 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-02 15:21:36,390 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-02 15:21:36,392 - INFO -  * Restarting with stat
+2026-05-02 15:21:38,360 - WARNING -  * Debugger is active!
+2026-05-02 15:21:38,361 - INFO -  * Debugger PIN: 144-142-816
+2026-05-02 15:22:40,837 - INFO -  * Detected change in 'C:\\AI_Training\\contact-us-assignment\\app.py', reloading
+2026-05-02 15:22:41,019 - INFO -  * Restarting with stat
+2026-05-02 15:22:46,426 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-02 15:22:46,426 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-02 15:22:46,428 - INFO -  * Restarting with stat
+2026-05-02 15:22:48,368 - WARNING -  * Debugger is active!
+2026-05-02 15:22:48,370 - INFO -  * Debugger PIN: 144-142-816
+2026-05-02 15:23:04,750 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-02 15:23:04,750 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-02 15:23:04,751 - INFO -  * Restarting with stat
+2026-05-02 15:23:07,168 - WARNING -  * Debugger is active!
+2026-05-02 15:23:07,171 - INFO -  * Debugger PIN: 144-142-816
+2026-05-02 15:24:04,473 - INFO -  * Detected change in 'C:\\AI_Training\\contact-us-assignment\\app.py', reloading
+2026-05-02 15:24:04,663 - INFO -  * Restarting with stat
+2026-05-02 15:24:09,776 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-02 15:24:09,776 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-02 15:24:27,596 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-02 15:24:27,597 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-02 15:24:43,779 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-02 15:24:43,779 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-02 15:27:19,878 - INFO - 127.0.0.1 - - [02/May/2026 15:27:19] "GET / HTTP/1.1" 200 -
+2026-05-02 15:27:20,047 - INFO - 127.0.0.1 - - [02/May/2026 15:27:20] "GET /static/style.css HTTP/1.1" 200 -
+2026-05-02 15:27:20,102 - INFO - 127.0.0.1 - - [02/May/2026 15:27:20] "GET /static/script.js HTTP/1.1" 200 -
+2026-05-02 15:27:20,867 - INFO - 127.0.0.1 - - [02/May/2026 15:27:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-05-02 15:27:37,671 - INFO - session_id=52605138-45c0-4934-807f-07255e5ce0a5 new session created
+2026-05-02 15:27:37,744 - INFO - session_id=52605138-45c0-4934-807f-07255e5ce0a5 conversation started
+2026-05-02 15:27:37,774 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-e7c5c0bd-267b-4c35-a3f7-dcd4bf293d4d', 'json_data': {'messages': [{'role': 'user', 'content': "You are a friendly contact form assistant. Greet the user warmly and ask for their full name. Keep it short and friendly. Return field='name' and status='asking'."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'BotResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'BotResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'status': {'type': 'string'}}, 'required': ['message', 'field', 'status'], 'type': 'object'}}}]}}
+2026-05-02 15:27:38,119 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:27:38,120 - DEBUG - connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=None socket_options=None
+2026-05-02 15:27:38,336 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC18C050>
+2026-05-02 15:27:38,336 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000179ABD9EDE0> server_hostname='api.groq.com' timeout=None
+2026-05-02 15:27:38,512 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC1225D0>
+2026-05-02 15:27:38,512 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:27:38,513 - DEBUG - send_request_headers.complete
+2026-05-02 15:27:38,513 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:27:38,513 - DEBUG - send_request_body.complete
+2026-05-02 15:27:38,514 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:27:38,950 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 09:57:39 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'999'), (b'x-ratelimit-remaining-tokens', b'29235'), (b'x-ratelimit-reset-requests', b'1m26.4s'), (b'x-ratelimit-reset-tokens', b'1.529s'), (b'x-request-id', b'req_01kqm1ykveftrs8mnma04fs1mg'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'set-cookie', b'__cf_bm=QMwgvt3j6gYeQeGVsNHWyZkprMg12YS7fNicRP4MuyQ-1777715859.2937267-1.0.1.1-Fxu8T6l9k6FwueBwMTvYfiPD38hN7MpG3bL.1WW3DTuTuvien.sB0xHTKqqqiBrIjxvfKa1YYg.6Wzq2l31M961RPDn56AcLp5F.NA5BDsnZrxUfHHOV8F1DtPgwQKSk; HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Sat, 02 May 2026 10:27:39 GMT'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f5629b8981a5909-CJB'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:27:38,953 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:27:38,954 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:27:38,955 - DEBUG - receive_response_body.complete
+2026-05-02 15:27:38,955 - DEBUG - response_closed.started
+2026-05-02 15:27:38,956 - DEBUG - response_closed.complete
+2026-05-02 15:27:38,956 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 09:57:39 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '999', 'x-ratelimit-remaining-tokens': '29235', 'x-ratelimit-reset-requests': '1m26.4s', 'x-ratelimit-reset-tokens': '1.529s', 'x-request-id': 'req_01kqm1ykveftrs8mnma04fs1mg', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'set-cookie': '__cf_bm=QMwgvt3j6gYeQeGVsNHWyZkprMg12YS7fNicRP4MuyQ-1777715859.2937267-1.0.1.1-Fxu8T6l9k6FwueBwMTvYfiPD38hN7MpG3bL.1WW3DTuTuvien.sB0xHTKqqqiBrIjxvfKa1YYg.6Wzq2l31M961RPDn56AcLp5F.NA5BDsnZrxUfHHOV8F1DtPgwQKSk; HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Sat, 02 May 2026 10:27:39 GMT', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f5629b8981a5909-CJB', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:27:39,049 - INFO - 127.0.0.1 - - [02/May/2026 15:27:39] "POST /chat/start HTTP/1.1" 200 -
+2026-05-02 15:27:48,790 - INFO - 127.0.0.1 - - [02/May/2026 15:27:48] "GET /logs-page HTTP/1.1" 200 -
+2026-05-02 15:27:48,816 - INFO - 127.0.0.1 - - [02/May/2026 15:27:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-02 15:27:48,823 - INFO - 127.0.0.1 - - [02/May/2026 15:27:48] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-02 15:27:48,837 - INFO - 127.0.0.1 - - [02/May/2026 15:27:48] "GET /logs?page=1&limit=10 HTTP/1.1" 200 -
+2026-05-02 15:28:00,099 - INFO - 127.0.0.1 - - [02/May/2026 15:28:00] "GET /logs/52605138-45c0-4934-807f-07255e5ce0a5/conversation HTTP/1.1" 200 -
+2026-05-02 15:28:04,565 - INFO - 127.0.0.1 - - [02/May/2026 15:28:04] "GET /logs/52605138-45c0-4934-807f-07255e5ce0a5/errors HTTP/1.1" 200 -
+2026-05-02 15:28:06,033 - INFO - 127.0.0.1 - - [02/May/2026 15:28:06] "GET /logs/52605138-45c0-4934-807f-07255e5ce0a5/details HTTP/1.1" 200 -
+2026-05-02 15:28:07,609 - INFO - 127.0.0.1 - - [02/May/2026 15:28:07] "GET /logs/52605138-45c0-4934-807f-07255e5ce0a5/conversation HTTP/1.1" 200 -
+2026-05-02 15:28:08,845 - INFO - 127.0.0.1 - - [02/May/2026 15:28:08] "GET /logs/52605138-45c0-4934-807f-07255e5ce0a5/errors HTTP/1.1" 200 -
+2026-05-02 15:28:10,806 - INFO - 127.0.0.1 - - [02/May/2026 15:28:10] "GET /logs/52605138-45c0-4934-807f-07255e5ce0a5/conversation HTTP/1.1" 200 -
+2026-05-02 15:28:12,105 - INFO - 127.0.0.1 - - [02/May/2026 15:28:12] "GET /logs/52605138-45c0-4934-807f-07255e5ce0a5/errors HTTP/1.1" 200 -
+2026-05-02 15:28:13,393 - INFO - 127.0.0.1 - - [02/May/2026 15:28:13] "GET /logs/52605138-45c0-4934-807f-07255e5ce0a5/details HTTP/1.1" 200 -
+2026-05-02 15:28:14,842 - INFO - 127.0.0.1 - - [02/May/2026 15:28:14] "GET /logs/52605138-45c0-4934-807f-07255e5ce0a5/conversation HTTP/1.1" 200 -
+2026-05-02 15:28:23,196 - INFO - 127.0.0.1 - - [02/May/2026 15:28:23] "GET / HTTP/1.1" 200 -
+2026-05-02 15:28:23,221 - INFO - 127.0.0.1 - - [02/May/2026 15:28:23] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-02 15:28:23,223 - INFO - 127.0.0.1 - - [02/May/2026 15:28:23] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-02 15:28:38,911 - INFO - 127.0.0.1 - - [02/May/2026 15:28:38] "GET /logs-page HTTP/1.1" 200 -
+2026-05-02 15:28:38,974 - INFO - 127.0.0.1 - - [02/May/2026 15:28:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-02 15:28:38,976 - INFO - 127.0.0.1 - - [02/May/2026 15:28:38] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-02 15:28:38,988 - INFO - 127.0.0.1 - - [02/May/2026 15:28:38] "GET /logs?page=1&limit=10 HTTP/1.1" 200 -
+2026-05-02 15:28:45,993 - INFO - 127.0.0.1 - - [02/May/2026 15:28:45] "GET / HTTP/1.1" 200 -
+2026-05-02 15:28:46,020 - INFO - 127.0.0.1 - - [02/May/2026 15:28:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-02 15:28:46,028 - INFO - 127.0.0.1 - - [02/May/2026 15:28:46] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-02 15:43:43,273 - INFO - 127.0.0.1 - - [02/May/2026 15:43:43] "GET /logs-page HTTP/1.1" 200 -
+2026-05-02 15:43:43,293 - INFO - 127.0.0.1 - - [02/May/2026 15:43:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-02 15:43:43,301 - INFO - 127.0.0.1 - - [02/May/2026 15:43:43] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-02 15:43:43,311 - INFO - 127.0.0.1 - - [02/May/2026 15:43:43] "GET /logs?page=1&limit=10 HTTP/1.1" 200 -
+2026-05-02 15:43:50,015 - INFO - 127.0.0.1 - - [02/May/2026 15:43:50] "GET /logs/52605138-45c0-4934-807f-07255e5ce0a5/conversation HTTP/1.1" 200 -
+2026-05-02 15:43:55,463 - INFO - 127.0.0.1 - - [02/May/2026 15:43:55] "GET / HTTP/1.1" 200 -
+2026-05-02 15:43:55,491 - INFO - 127.0.0.1 - - [02/May/2026 15:43:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-02 15:43:55,498 - INFO - 127.0.0.1 - - [02/May/2026 15:43:55] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-02 15:44:24,217 - INFO - session_id=9dd838fb-2522-432c-97f2-7622dc534667 new session created
+2026-05-02 15:44:24,228 - INFO - session_id=9dd838fb-2522-432c-97f2-7622dc534667 conversation started
+2026-05-02 15:44:24,273 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-2281544b-8411-403e-aa6a-63b260c19dc1', 'json_data': {'messages': [{'role': 'user', 'content': "You are a friendly contact form assistant. Greet the user warmly and ask for their full name. Keep it short and friendly. Return field='name' and status='asking'."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'BotResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'BotResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'status': {'type': 'string'}}, 'required': ['message', 'field', 'status'], 'type': 'object'}}}]}}
+2026-05-02 15:44:24,276 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:44:24,277 - DEBUG - close.started
+2026-05-02 15:44:24,278 - DEBUG - close.complete
+2026-05-02 15:44:24,278 - DEBUG - connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=None socket_options=None
+2026-05-02 15:44:24,498 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC120190>
+2026-05-02 15:44:24,499 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000179ABD9EDE0> server_hostname='api.groq.com' timeout=None
+2026-05-02 15:44:24,609 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC101480>
+2026-05-02 15:44:24,610 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:44:24,611 - DEBUG - send_request_headers.complete
+2026-05-02 15:44:24,611 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:44:24,612 - DEBUG - send_request_body.complete
+2026-05-02 15:44:24,612 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:44:24,911 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:14:25 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'999'), (b'x-ratelimit-remaining-tokens', b'29235'), (b'x-ratelimit-reset-requests', b'1m26.4s'), (b'x-ratelimit-reset-tokens', b'1.529s'), (b'x-request-id', b'req_01kqm2xackeb7shjvyx08c4x8a'), (b'set-cookie', b'__cf_bm=2zERDSjrs3GSVsCBgtttjtA6onww14JKeP1J8IQkaYw-1777716865.3905177-1.0.1.1-g_UWIVc8kPTQbXKVx3ZIkxdG_g.hsvuOJw127FlORdkiSm3dH3hFF0ex6FNH0RKY64lukZV71emg82KHVh5U0vMpeu.FSMUbdHCvAqkoiNHVShk_b1c.WjdGGkwo5yZk; HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Sat, 02 May 2026 10:44:25 GMT'), (b'via', b'1.1 google'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'cf-cache-status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f564248a9df7f4f-MAA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:44:24,913 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:44:24,913 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:44:24,914 - DEBUG - receive_response_body.complete
+2026-05-02 15:44:24,915 - DEBUG - response_closed.started
+2026-05-02 15:44:24,915 - DEBUG - response_closed.complete
+2026-05-02 15:44:24,915 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:14:25 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '999', 'x-ratelimit-remaining-tokens': '29235', 'x-ratelimit-reset-requests': '1m26.4s', 'x-ratelimit-reset-tokens': '1.529s', 'x-request-id': 'req_01kqm2xackeb7shjvyx08c4x8a', 'set-cookie': '__cf_bm=2zERDSjrs3GSVsCBgtttjtA6onww14JKeP1J8IQkaYw-1777716865.3905177-1.0.1.1-g_UWIVc8kPTQbXKVx3ZIkxdG_g.hsvuOJw127FlORdkiSm3dH3hFF0ex6FNH0RKY64lukZV71emg82KHVh5U0vMpeu.FSMUbdHCvAqkoiNHVShk_b1c.WjdGGkwo5yZk; HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Sat, 02 May 2026 10:44:25 GMT', 'via': '1.1 google', 'strict-transport-security': 'max-age=15552000', 'cf-cache-status': 'DYNAMIC', 'content-encoding': 'gzip', 'cf-ray': '9f564248a9df7f4f-MAA', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:44:24,982 - INFO - 127.0.0.1 - - [02/May/2026 15:44:24] "POST /chat/start HTTP/1.1" 200 -
+2026-05-02 15:44:32,865 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-0869e05b-feb8-4c1e-b575-24da0b7ffe9f', 'json_data': {'messages': [{'role': 'user', 'content': "Validate this name: 'my name is eby'. Use the validate_name_tool."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tools': [{'type': 'function', 'function': {'name': 'validate_name_tool', 'description': "Validate the user's name. Checks for empty, letters only, minimum length.", 'parameters': {'properties': {'name': {'type': 'string'}}, 'required': ['name'], 'type': 'object'}}}]}}
+2026-05-02 15:44:32,867 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:44:32,868 - DEBUG - close.started
+2026-05-02 15:44:32,868 - DEBUG - close.complete
+2026-05-02 15:44:32,869 - DEBUG - connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=None socket_options=None
+2026-05-02 15:44:33,036 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC1016E0>
+2026-05-02 15:44:33,037 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000179ABD9EDE0> server_hostname='api.groq.com' timeout=None
+2026-05-02 15:44:33,108 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC0A7AD0>
+2026-05-02 15:44:33,109 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:44:33,110 - DEBUG - send_request_headers.complete
+2026-05-02 15:44:33,110 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:44:33,110 - DEBUG - send_request_body.complete
+2026-05-02 15:44:33,110 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:44:33,509 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:14:34 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'998'), (b'x-ratelimit-remaining-tokens', b'29212'), (b'x-ratelimit-reset-requests', b'2m52.8s'), (b'x-ratelimit-reset-tokens', b'1.576s'), (b'x-request-id', b'req_01kqm2xjprebtvm415xsm8dk8r'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f56427dd9fb802f-MAA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:44:33,510 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:44:33,511 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:44:33,511 - DEBUG - receive_response_body.complete
+2026-05-02 15:44:33,511 - DEBUG - response_closed.started
+2026-05-02 15:44:33,511 - DEBUG - response_closed.complete
+2026-05-02 15:44:33,512 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:14:34 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '998', 'x-ratelimit-remaining-tokens': '29212', 'x-ratelimit-reset-requests': '2m52.8s', 'x-ratelimit-reset-tokens': '1.576s', 'x-request-id': 'req_01kqm2xjprebtvm415xsm8dk8r', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f56427dd9fb802f-MAA', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:44:33,515 - INFO - session_id=9dd838fb-2522-432c-97f2-7622dc534667 field=name input=my name is eby status=SUCCESS
+2026-05-02 15:44:33,524 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-dd9ec3f0-e62b-4ec6-89fa-f93317d94655', 'json_data': {'messages': [{'role': 'user', 'content': "You are a friendly contact form assistant. The user's name is my name is eby. Ask for their email address in a friendly way. Keep it short. Return field='email' and status='asking'."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'BotResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'BotResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'status': {'type': 'string'}}, 'required': ['message', 'field', 'status'], 'type': 'object'}}}]}}
+2026-05-02 15:44:33,526 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:44:33,526 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:44:33,527 - DEBUG - send_request_headers.complete
+2026-05-02 15:44:33,527 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:44:33,528 - DEBUG - send_request_body.complete
+2026-05-02 15:44:33,528 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:44:33,920 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:14:34 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'997'), (b'x-ratelimit-remaining-tokens', b'28683'), (b'x-ratelimit-reset-requests', b'4m19.2s'), (b'x-ratelimit-reset-tokens', b'2.634s'), (b'x-request-id', b'req_01kqm2xk49fajt0b2n3nxf8ra4'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f5642808be0802f-MAA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:44:33,922 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:44:33,922 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:44:33,922 - DEBUG - receive_response_body.complete
+2026-05-02 15:44:33,923 - DEBUG - response_closed.started
+2026-05-02 15:44:33,923 - DEBUG - response_closed.complete
+2026-05-02 15:44:33,923 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:14:34 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '997', 'x-ratelimit-remaining-tokens': '28683', 'x-ratelimit-reset-requests': '4m19.2s', 'x-ratelimit-reset-tokens': '2.634s', 'x-request-id': 'req_01kqm2xk49fajt0b2n3nxf8ra4', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f5642808be0802f-MAA', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:44:33,987 - INFO - 127.0.0.1 - - [02/May/2026 15:44:33] "POST /chat HTTP/1.1" 200 -
+2026-05-02 15:44:46,990 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-74e0168d-e8ad-463e-8d4d-8cf593d46630', 'json_data': {'messages': [{'role': 'user', 'content': "Validate this email: 'my name is eby mathew'. Use the validate_email_tool."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tools': [{'type': 'function', 'function': {'name': 'validate_email_tool', 'description': "Validate the user's email address. Checks for proper format.", 'parameters': {'properties': {'email': {'type': 'string'}}, 'required': ['email'], 'type': 'object'}}}]}}
+2026-05-02 15:44:46,992 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:44:46,992 - DEBUG - close.started
+2026-05-02 15:44:46,993 - DEBUG - close.complete
+2026-05-02 15:44:46,993 - DEBUG - connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=None socket_options=None
+2026-05-02 15:44:47,230 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC152F10>
+2026-05-02 15:44:47,231 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000179ABD9EDE0> server_hostname='api.groq.com' timeout=None
+2026-05-02 15:44:47,344 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC152E00>
+2026-05-02 15:44:47,344 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:44:47,345 - DEBUG - send_request_headers.complete
+2026-05-02 15:44:47,345 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:44:47,346 - DEBUG - send_request_body.complete
+2026-05-02 15:44:47,346 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:44:47,743 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:14:48 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'996'), (b'x-ratelimit-remaining-tokens', b'29214'), (b'x-ratelimit-reset-requests', b'5m45.6s'), (b'x-ratelimit-reset-tokens', b'1.572s'), (b'x-request-id', b'req_01kqm2y0jted28dd0kvpy1q6aj'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f5642d6cb8e7ed6-MAA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:44:47,743 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:44:47,744 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:44:47,744 - DEBUG - receive_response_body.complete
+2026-05-02 15:44:47,745 - DEBUG - response_closed.started
+2026-05-02 15:44:47,745 - DEBUG - response_closed.complete
+2026-05-02 15:44:47,745 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:14:48 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '996', 'x-ratelimit-remaining-tokens': '29214', 'x-ratelimit-reset-requests': '5m45.6s', 'x-ratelimit-reset-tokens': '1.572s', 'x-request-id': 'req_01kqm2y0jted28dd0kvpy1q6aj', 'strict-transport-security': 'max-age=15552000', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'content-encoding': 'gzip', 'cf-ray': '9f5642d6cb8e7ed6-MAA', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:44:47,749 - WARNING - session_id=9dd838fb-2522-432c-97f2-7622dc534667 field=email input=my name is eby mathew error=missing_at retry=1
+2026-05-02 15:44:47,755 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-2811072d-7e87-489f-b96b-2632d290b4fb', 'json_data': {'messages': [{'role': 'user', 'content': "The user entered 'my name is eby mathew' as their email but it is invalid. Error type: missing_at. Retry number 1. Generate a friendly short error message. Return field='email', error_type='missing_at', retry_count=1."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'ErrorResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'ErrorResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'error_type': {'type': 'string'}, 'retry_count': {'type': 'integer'}}, 'required': ['message', 'field', 'error_type', 'retry_count'], 'type': 'object'}}}]}}
+2026-05-02 15:44:47,757 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:44:47,757 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:44:47,758 - DEBUG - send_request_headers.complete
+2026-05-02 15:44:47,759 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:44:47,759 - DEBUG - send_request_body.complete
+2026-05-02 15:44:47,759 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:44:48,152 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:14:48 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'995'), (b'x-ratelimit-remaining-tokens', b'28601'), (b'x-ratelimit-reset-requests', b'7m12s'), (b'x-ratelimit-reset-tokens', b'2.798s'), (b'x-request-id', b'req_01kqm2y10bed3tdf6fkk9pere2'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f5642d97d7a7ed6-MAA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:44:48,153 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:44:48,153 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:44:48,154 - DEBUG - receive_response_body.complete
+2026-05-02 15:44:48,154 - DEBUG - response_closed.started
+2026-05-02 15:44:48,154 - DEBUG - response_closed.complete
+2026-05-02 15:44:48,155 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:14:48 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '995', 'x-ratelimit-remaining-tokens': '28601', 'x-ratelimit-reset-requests': '7m12s', 'x-ratelimit-reset-tokens': '2.798s', 'x-request-id': 'req_01kqm2y10bed3tdf6fkk9pere2', 'strict-transport-security': 'max-age=15552000', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'content-encoding': 'gzip', 'cf-ray': '9f5642d97d7a7ed6-MAA', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:44:48,168 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-c61627b2-07f5-4431-852b-d6159acfb5a9', 'json_data': {'messages': [{'role': 'user', 'content': "You are a friendly contact form assistant. The user's name is my name is eby. Ask for their email address in a friendly way. Keep it short. Return field='email' and status='asking'."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'BotResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'BotResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'status': {'type': 'string'}}, 'required': ['message', 'field', 'status'], 'type': 'object'}}}]}}
+2026-05-02 15:44:48,170 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:44:48,172 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:44:48,173 - DEBUG - send_request_headers.complete
+2026-05-02 15:44:48,173 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:44:48,174 - DEBUG - send_request_body.complete
+2026-05-02 15:44:48,174 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:44:48,664 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:14:49 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'994'), (b'x-ratelimit-remaining-tokens', b'28040'), (b'x-ratelimit-reset-requests', b'8m38.4s'), (b'x-ratelimit-reset-tokens', b'3.919s'), (b'x-request-id', b'req_01kqm2y1defsgtjk8ewe0zsw38'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f5642dc0f377ed6-MAA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:44:48,666 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:44:48,667 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:44:48,668 - DEBUG - receive_response_body.complete
+2026-05-02 15:44:48,668 - DEBUG - response_closed.started
+2026-05-02 15:44:48,668 - DEBUG - response_closed.complete
+2026-05-02 15:44:48,668 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:14:49 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '994', 'x-ratelimit-remaining-tokens': '28040', 'x-ratelimit-reset-requests': '8m38.4s', 'x-ratelimit-reset-tokens': '3.919s', 'x-request-id': 'req_01kqm2y1defsgtjk8ewe0zsw38', 'strict-transport-security': 'max-age=15552000', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'content-encoding': 'gzip', 'cf-ray': '9f5642dc0f377ed6-MAA', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:44:48,738 - INFO - 127.0.0.1 - - [02/May/2026 15:44:48] "POST /chat HTTP/1.1" 200 -
+2026-05-02 15:45:21,711 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-e2de8be2-7767-44d8-8447-1dd1f09763c2', 'json_data': {'messages': [{'role': 'user', 'content': "Validate this email: '8765432121'. Use the validate_email_tool."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tools': [{'type': 'function', 'function': {'name': 'validate_email_tool', 'description': "Validate the user's email address. Checks for proper format.", 'parameters': {'properties': {'email': {'type': 'string'}}, 'required': ['email'], 'type': 'object'}}}]}}
+2026-05-02 15:45:21,713 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:45:21,714 - DEBUG - close.started
+2026-05-02 15:45:21,714 - DEBUG - close.complete
+2026-05-02 15:45:21,715 - DEBUG - connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=None socket_options=None
+2026-05-02 15:45:21,841 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC0E2250>
+2026-05-02 15:45:21,841 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000179ABD9EDE0> server_hostname='api.groq.com' timeout=None
+2026-05-02 15:45:21,950 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC16C750>
+2026-05-02 15:45:21,951 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:45:21,951 - DEBUG - send_request_headers.complete
+2026-05-02 15:45:21,951 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:45:21,952 - DEBUG - send_request_body.complete
+2026-05-02 15:45:21,952 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:45:22,252 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:15:22 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'993'), (b'x-ratelimit-remaining-tokens', b'29217'), (b'x-ratelimit-reset-requests', b'10m4.8s'), (b'x-ratelimit-reset-tokens', b'1.566s'), (b'x-request-id', b'req_01kqm2z2d4efq8jdgfegb0t7nw'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f5643af1a9ad5ee-MAA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:45:22,253 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:45:22,254 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:45:22,254 - DEBUG - receive_response_body.complete
+2026-05-02 15:45:22,254 - DEBUG - response_closed.started
+2026-05-02 15:45:22,255 - DEBUG - response_closed.complete
+2026-05-02 15:45:22,255 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:15:22 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '993', 'x-ratelimit-remaining-tokens': '29217', 'x-ratelimit-reset-requests': '10m4.8s', 'x-ratelimit-reset-tokens': '1.566s', 'x-request-id': 'req_01kqm2z2d4efq8jdgfegb0t7nw', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f5643af1a9ad5ee-MAA', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:45:22,258 - WARNING - session_id=9dd838fb-2522-432c-97f2-7622dc534667 field=email input=8765432121 error=missing_at retry=2
+2026-05-02 15:45:22,264 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-75809e09-acd4-4cca-9cf2-0d47ea52aacf', 'json_data': {'messages': [{'role': 'user', 'content': "The user entered '8765432121' as their email but it is invalid. Error type: missing_at. Retry number 2. Generate a friendly short error message. Return field='email', error_type='missing_at', retry_count=2."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'ErrorResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'ErrorResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'error_type': {'type': 'string'}, 'retry_count': {'type': 'integer'}}, 'required': ['message', 'field', 'error_type', 'retry_count'], 'type': 'object'}}}]}}
+2026-05-02 15:45:22,267 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:45:22,267 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:45:22,268 - DEBUG - send_request_headers.complete
+2026-05-02 15:45:22,269 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:45:22,269 - DEBUG - send_request_body.complete
+2026-05-02 15:45:22,269 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:45:22,763 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:15:23 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'992'), (b'x-ratelimit-remaining-tokens', b'28550'), (b'x-ratelimit-reset-requests', b'11m31.2s'), (b'x-ratelimit-reset-tokens', b'2.9s'), (b'x-request-id', b'req_01kqm2z2qgfexswmk4007g2qke'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f5643b12f28d5ee-MAA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:45:22,765 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:45:22,765 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:45:22,766 - DEBUG - receive_response_body.complete
+2026-05-02 15:45:22,767 - DEBUG - response_closed.started
+2026-05-02 15:45:22,767 - DEBUG - response_closed.complete
+2026-05-02 15:45:22,767 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:15:23 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '992', 'x-ratelimit-remaining-tokens': '28550', 'x-ratelimit-reset-requests': '11m31.2s', 'x-ratelimit-reset-tokens': '2.9s', 'x-request-id': 'req_01kqm2z2qgfexswmk4007g2qke', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f5643b12f28d5ee-MAA', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:45:22,780 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-33f1fb55-0e38-4627-8c32-6d79ca291223', 'json_data': {'messages': [{'role': 'user', 'content': "You are a friendly contact form assistant. The user's name is my name is eby. Ask for their email address in a friendly way. Keep it short. Return field='email' and status='asking'."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'BotResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'BotResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'status': {'type': 'string'}}, 'required': ['message', 'field', 'status'], 'type': 'object'}}}]}}
+2026-05-02 15:45:22,782 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:45:22,783 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:45:22,783 - DEBUG - send_request_headers.complete
+2026-05-02 15:45:22,784 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:45:22,784 - DEBUG - send_request_body.complete
+2026-05-02 15:45:22,784 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:45:23,275 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:15:23 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'991'), (b'x-ratelimit-remaining-tokens', b'27982'), (b'x-ratelimit-reset-requests', b'12m57.599s'), (b'x-ratelimit-reset-tokens', b'4.036s'), (b'x-request-id', b'req_01kqm2z37qfezb8p9gfzzdab9j'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f5643b46f0dd5ee-MAA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:45:23,276 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:45:23,277 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:45:23,277 - DEBUG - receive_response_body.complete
+2026-05-02 15:45:23,277 - DEBUG - response_closed.started
+2026-05-02 15:45:23,278 - DEBUG - response_closed.complete
+2026-05-02 15:45:23,278 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:15:23 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '991', 'x-ratelimit-remaining-tokens': '27982', 'x-ratelimit-reset-requests': '12m57.599s', 'x-ratelimit-reset-tokens': '4.036s', 'x-request-id': 'req_01kqm2z37qfezb8p9gfzzdab9j', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f5643b46f0dd5ee-MAA', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:45:23,339 - INFO - 127.0.0.1 - - [02/May/2026 15:45:23] "POST /chat HTTP/1.1" 200 -
+2026-05-02 15:45:51,007 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-b4b68bdd-e1c9-46a0-94c8-5f5bde7366d4', 'json_data': {'messages': [{'role': 'user', 'content': "Validate this email: 'eby@gmail.com'. Use the validate_email_tool."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tools': [{'type': 'function', 'function': {'name': 'validate_email_tool', 'description': "Validate the user's email address. Checks for proper format.", 'parameters': {'properties': {'email': {'type': 'string'}}, 'required': ['email'], 'type': 'object'}}}]}}
+2026-05-02 15:45:51,009 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:45:51,009 - DEBUG - close.started
+2026-05-02 15:45:51,010 - DEBUG - close.complete
+2026-05-02 15:45:51,010 - DEBUG - connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=None socket_options=None
+2026-05-02 15:45:51,229 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC61C6E0>
+2026-05-02 15:45:51,230 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000179ABD9EDE0> server_hostname='api.groq.com' timeout=None
+2026-05-02 15:45:51,342 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC61C7D0>
+2026-05-02 15:45:51,342 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:45:51,343 - DEBUG - send_request_headers.complete
+2026-05-02 15:45:51,343 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:45:51,344 - DEBUG - send_request_body.complete
+2026-05-02 15:45:51,344 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:45:51,741 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:15:52 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'990'), (b'x-ratelimit-remaining-tokens', b'29209'), (b'x-ratelimit-reset-requests', b'14m24s'), (b'x-ratelimit-reset-tokens', b'1.582s'), (b'x-request-id', b'req_01kqm2zz3jfgjvrnqwwsq453ez'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f564466cc7eb8fe-MAA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:45:51,742 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:45:51,742 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:45:51,743 - DEBUG - receive_response_body.complete
+2026-05-02 15:45:51,743 - DEBUG - response_closed.started
+2026-05-02 15:45:51,743 - DEBUG - response_closed.complete
+2026-05-02 15:45:51,744 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:15:52 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '990', 'x-ratelimit-remaining-tokens': '29209', 'x-ratelimit-reset-requests': '14m24s', 'x-ratelimit-reset-tokens': '1.582s', 'x-request-id': 'req_01kqm2zz3jfgjvrnqwwsq453ez', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f564466cc7eb8fe-MAA', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:45:51,746 - INFO - session_id=9dd838fb-2522-432c-97f2-7622dc534667 field=email input=eby@gmail.com status=SUCCESS
+2026-05-02 15:45:51,756 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-5e42a460-279e-4c50-8a46-97e63b5fd48c', 'json_data': {'messages': [{'role': 'user', 'content': "You are a friendly contact form assistant. Ask the user for their 10-digit phone number. Keep it short and friendly. Return field='phone' and status='asking'."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'BotResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'BotResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'status': {'type': 'string'}}, 'required': ['message', 'field', 'status'], 'type': 'object'}}}]}}
+2026-05-02 15:45:51,758 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:45:51,759 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:45:51,760 - DEBUG - send_request_headers.complete
+2026-05-02 15:45:51,760 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:45:51,761 - DEBUG - send_request_body.complete
+2026-05-02 15:45:51,761 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:45:52,151 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:15:52 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'989'), (b'x-ratelimit-remaining-tokens', b'28627'), (b'x-ratelimit-reset-requests', b'15m50.4s'), (b'x-ratelimit-reset-tokens', b'2.746s'), (b'x-request-id', b'req_01kqm2zzgtfgjr160v08c5w2ed'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f56446969f4b8fe-MAA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:45:52,164 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:45:52,164 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:45:52,165 - DEBUG - receive_response_body.complete
+2026-05-02 15:45:52,165 - DEBUG - response_closed.started
+2026-05-02 15:45:52,166 - DEBUG - response_closed.complete
+2026-05-02 15:45:52,166 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:15:52 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '989', 'x-ratelimit-remaining-tokens': '28627', 'x-ratelimit-reset-requests': '15m50.4s', 'x-ratelimit-reset-tokens': '2.746s', 'x-request-id': 'req_01kqm2zzgtfgjr160v08c5w2ed', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f56446969f4b8fe-MAA', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:45:52,205 - INFO - 127.0.0.1 - - [02/May/2026 15:45:52] "POST /chat HTTP/1.1" 200 -
+2026-05-02 15:45:58,373 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-32c5b2a1-61d9-4796-919f-5e4f499cd69e', 'json_data': {'messages': [{'role': 'user', 'content': "Validate this phone number: '123456'. Use the validate_phone_tool."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tools': [{'type': 'function', 'function': {'name': 'validate_phone_tool', 'description': "Validate the user's phone number. Must be exactly 10 digits.", 'parameters': {'properties': {'phone': {'type': 'string'}}, 'required': ['phone'], 'type': 'object'}}}]}}
+2026-05-02 15:45:58,374 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:45:58,375 - DEBUG - close.started
+2026-05-02 15:45:58,375 - DEBUG - close.complete
+2026-05-02 15:45:58,376 - DEBUG - connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=None socket_options=None
+2026-05-02 15:45:58,500 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC629EF0>
+2026-05-02 15:45:58,500 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000179ABD9EDE0> server_hostname='api.groq.com' timeout=None
+2026-05-02 15:45:58,608 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC629FD0>
+2026-05-02 15:45:58,608 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:45:58,610 - DEBUG - send_request_headers.complete
+2026-05-02 15:45:58,610 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:45:58,610 - DEBUG - send_request_body.complete
+2026-05-02 15:45:58,610 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:45:59,117 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:15:59 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'988'), (b'x-ratelimit-remaining-tokens', b'29207'), (b'x-ratelimit-reset-requests', b'17m16.8s'), (b'x-ratelimit-reset-tokens', b'1.586s'), (b'x-request-id', b'req_01kqm30667fh5a8ft96v57wwba'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f56449448909365-MAA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:45:59,118 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:45:59,119 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:45:59,119 - DEBUG - receive_response_body.complete
+2026-05-02 15:45:59,120 - DEBUG - response_closed.started
+2026-05-02 15:45:59,120 - DEBUG - response_closed.complete
+2026-05-02 15:45:59,120 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:15:59 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '988', 'x-ratelimit-remaining-tokens': '29207', 'x-ratelimit-reset-requests': '17m16.8s', 'x-ratelimit-reset-tokens': '1.586s', 'x-request-id': 'req_01kqm30667fh5a8ft96v57wwba', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f56449448909365-MAA', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:45:59,124 - WARNING - session_id=9dd838fb-2522-432c-97f2-7622dc534667 field=phone input=123456 error=wrong_length retry=1
+2026-05-02 15:45:59,129 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-2273a55f-1ac4-4f37-a6ef-b32d224c72c1', 'json_data': {'messages': [{'role': 'user', 'content': "The user entered '123456' as their phone number but it is invalid. Error type: wrong_length. Retry number 1. Generate a friendly short error message. Return field='phone', error_type='wrong_length', retry_count=1."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'ErrorResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'ErrorResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'error_type': {'type': 'string'}, 'retry_count': {'type': 'integer'}}, 'required': ['message', 'field', 'error_type', 'retry_count'], 'type': 'object'}}}]}}
+2026-05-02 15:45:59,131 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:45:59,132 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:45:59,133 - DEBUG - send_request_headers.complete
+2026-05-02 15:45:59,133 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:45:59,133 - DEBUG - send_request_body.complete
+2026-05-02 15:45:59,133 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:45:59,729 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:16:00 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'987'), (b'x-ratelimit-remaining-tokens', b'28658'), (b'x-ratelimit-reset-requests', b'18m43.2s'), (b'x-ratelimit-reset-tokens', b'2.684s'), (b'x-request-id', b'req_01kqm306q5fy9araceb531g9dz'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f564497ad6b9365-MAA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:45:59,730 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:45:59,731 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:45:59,733 - DEBUG - receive_response_body.complete
+2026-05-02 15:45:59,733 - DEBUG - response_closed.started
+2026-05-02 15:45:59,733 - DEBUG - response_closed.complete
+2026-05-02 15:45:59,734 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:16:00 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '987', 'x-ratelimit-remaining-tokens': '28658', 'x-ratelimit-reset-requests': '18m43.2s', 'x-ratelimit-reset-tokens': '2.684s', 'x-request-id': 'req_01kqm306q5fy9araceb531g9dz', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f564497ad6b9365-MAA', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:45:59,746 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-013fc221-e86d-4bd5-85cd-4ce61b4c5831', 'json_data': {'messages': [{'role': 'user', 'content': "You are a friendly contact form assistant. Ask the user for their 10-digit phone number. Keep it short and friendly. Return field='phone' and status='asking'."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'BotResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'BotResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'status': {'type': 'string'}}, 'required': ['message', 'field', 'status'], 'type': 'object'}}}]}}
+2026-05-02 15:45:59,748 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:45:59,749 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:45:59,750 - DEBUG - send_request_headers.complete
+2026-05-02 15:45:59,750 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:45:59,751 - DEBUG - send_request_body.complete
+2026-05-02 15:45:59,751 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:46:00,343 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:16:00 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'986'), (b'x-ratelimit-remaining-tokens', b'28139'), (b'x-ratelimit-reset-requests', b'20m9.6s'), (b'x-ratelimit-reset-tokens', b'3.722s'), (b'x-request-id', b'req_01kqm307acfycrtkdn6c3dnkqg'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f56449b89569365-MAA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:46:00,354 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:46:00,354 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:46:00,355 - DEBUG - receive_response_body.complete
+2026-05-02 15:46:00,355 - DEBUG - response_closed.started
+2026-05-02 15:46:00,355 - DEBUG - response_closed.complete
+2026-05-02 15:46:00,355 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:16:00 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '986', 'x-ratelimit-remaining-tokens': '28139', 'x-ratelimit-reset-requests': '20m9.6s', 'x-ratelimit-reset-tokens': '3.722s', 'x-request-id': 'req_01kqm307acfycrtkdn6c3dnkqg', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f56449b89569365-MAA', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:46:00,394 - INFO - 127.0.0.1 - - [02/May/2026 15:46:00] "POST /chat HTTP/1.1" 200 -
+2026-05-02 15:46:20,995 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-15c681b2-4dbf-4b3a-91e1-1821af618582', 'json_data': {'messages': [{'role': 'user', 'content': "Validate this phone number: '987654321'. Use the validate_phone_tool."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tools': [{'type': 'function', 'function': {'name': 'validate_phone_tool', 'description': "Validate the user's phone number. Must be exactly 10 digits.", 'parameters': {'properties': {'phone': {'type': 'string'}}, 'required': ['phone'], 'type': 'object'}}}]}}
+2026-05-02 15:46:20,997 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:46:20,998 - DEBUG - close.started
+2026-05-02 15:46:20,999 - DEBUG - close.complete
+2026-05-02 15:46:20,999 - DEBUG - connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=None socket_options=None
+2026-05-02 15:46:21,129 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC0CB1E0>
+2026-05-02 15:46:21,129 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000179ABD9EDE0> server_hostname='api.groq.com' timeout=None
+2026-05-02 15:46:21,240 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC0CF950>
+2026-05-02 15:46:21,241 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:46:21,242 - DEBUG - send_request_headers.complete
+2026-05-02 15:46:21,242 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:46:21,243 - DEBUG - send_request_body.complete
+2026-05-02 15:46:21,243 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:46:21,642 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:16:22 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'985'), (b'x-ratelimit-remaining-tokens', b'29206'), (b'x-ratelimit-reset-requests', b'21m36s'), (b'x-ratelimit-reset-tokens', b'1.588s'), (b'x-request-id', b'req_01kqm30w9efjxat8b59mdk78dk'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f564521bd907d39-CJB'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:46:21,643 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:46:21,644 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:46:21,644 - DEBUG - receive_response_body.complete
+2026-05-02 15:46:21,645 - DEBUG - response_closed.started
+2026-05-02 15:46:21,645 - DEBUG - response_closed.complete
+2026-05-02 15:46:21,645 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:16:22 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '985', 'x-ratelimit-remaining-tokens': '29206', 'x-ratelimit-reset-requests': '21m36s', 'x-ratelimit-reset-tokens': '1.588s', 'x-request-id': 'req_01kqm30w9efjxat8b59mdk78dk', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f564521bd907d39-CJB', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:46:21,649 - WARNING - session_id=9dd838fb-2522-432c-97f2-7622dc534667 field=phone input=987654321 error=wrong_length retry=2
+2026-05-02 15:46:21,655 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-7976f086-9b47-45bd-93e1-6b9f53803077', 'json_data': {'messages': [{'role': 'user', 'content': "The user entered '987654321' as their phone number but it is invalid. Error type: wrong_length. Retry number 2. Generate a friendly short error message. Return field='phone', error_type='wrong_length', retry_count=2."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'ErrorResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'ErrorResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'error_type': {'type': 'string'}, 'retry_count': {'type': 'integer'}}, 'required': ['message', 'field', 'error_type', 'retry_count'], 'type': 'object'}}}]}}
+2026-05-02 15:46:21,657 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:46:21,658 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:46:21,658 - DEBUG - send_request_headers.complete
+2026-05-02 15:46:21,659 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:46:21,659 - DEBUG - send_request_body.complete
+2026-05-02 15:46:21,659 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:46:22,153 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:16:22 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'984'), (b'x-ratelimit-remaining-tokens', b'28606'), (b'x-ratelimit-reset-requests', b'23m2.4s'), (b'x-ratelimit-reset-tokens', b'2.788s'), (b'x-request-id', b'req_01kqm30wpsejyar2p8rn093nr8'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f56452469b37d39-CJB'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:46:22,154 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:46:22,155 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:46:22,155 - DEBUG - receive_response_body.complete
+2026-05-02 15:46:22,155 - DEBUG - response_closed.started
+2026-05-02 15:46:22,155 - DEBUG - response_closed.complete
+2026-05-02 15:46:22,156 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:16:22 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '984', 'x-ratelimit-remaining-tokens': '28606', 'x-ratelimit-reset-requests': '23m2.4s', 'x-ratelimit-reset-tokens': '2.788s', 'x-request-id': 'req_01kqm30wpsejyar2p8rn093nr8', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f56452469b37d39-CJB', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:46:22,165 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-f27866a6-6faf-4cd4-892c-6daca681f439', 'json_data': {'messages': [{'role': 'user', 'content': "You are a friendly contact form assistant. Ask the user for their 10-digit phone number. Keep it short and friendly. Return field='phone' and status='asking'."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'BotResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'BotResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'status': {'type': 'string'}}, 'required': ['message', 'field', 'status'], 'type': 'object'}}}]}}
+2026-05-02 15:46:22,167 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:46:22,169 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:46:22,170 - DEBUG - send_request_headers.complete
+2026-05-02 15:46:22,170 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:46:22,171 - DEBUG - send_request_body.complete
+2026-05-02 15:46:22,171 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:46:22,566 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:16:23 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'983'), (b'x-ratelimit-remaining-tokens', b'28037'), (b'x-ratelimit-reset-requests', b'24m28.8s'), (b'x-ratelimit-reset-tokens', b'3.925s'), (b'x-request-id', b'req_01kqm30x6kejz9nkky8k94zwnp'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f5645279dc07d39-CJB'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:46:22,566 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:46:22,567 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:46:22,567 - DEBUG - receive_response_body.complete
+2026-05-02 15:46:22,567 - DEBUG - response_closed.started
+2026-05-02 15:46:22,567 - DEBUG - response_closed.complete
+2026-05-02 15:46:22,568 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:16:23 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '983', 'x-ratelimit-remaining-tokens': '28037', 'x-ratelimit-reset-requests': '24m28.8s', 'x-ratelimit-reset-tokens': '3.925s', 'x-request-id': 'req_01kqm30x6kejz9nkky8k94zwnp', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f5645279dc07d39-CJB', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:46:22,632 - INFO - 127.0.0.1 - - [02/May/2026 15:46:22] "POST /chat HTTP/1.1" 200 -
+2026-05-02 15:46:35,685 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-8a931b33-6ab4-4373-8662-3baf4d6bcc07', 'json_data': {'messages': [{'role': 'user', 'content': "Validate this phone number: '987654321'. Use the validate_phone_tool."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tools': [{'type': 'function', 'function': {'name': 'validate_phone_tool', 'description': "Validate the user's phone number. Must be exactly 10 digits.", 'parameters': {'properties': {'phone': {'type': 'string'}}, 'required': ['phone'], 'type': 'object'}}}]}}
+2026-05-02 15:46:35,687 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:46:35,687 - DEBUG - close.started
+2026-05-02 15:46:35,688 - DEBUG - close.complete
+2026-05-02 15:46:35,688 - DEBUG - connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=None socket_options=None
+2026-05-02 15:46:35,772 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC668F50>
+2026-05-02 15:46:35,772 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000179ABD9EDE0> server_hostname='api.groq.com' timeout=None
+2026-05-02 15:46:35,880 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC11AA40>
+2026-05-02 15:46:35,881 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:46:35,882 - DEBUG - send_request_headers.complete
+2026-05-02 15:46:35,882 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:46:35,883 - DEBUG - send_request_body.complete
+2026-05-02 15:46:35,883 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:46:36,183 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:16:36 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'982'), (b'x-ratelimit-remaining-tokens', b'29206'), (b'x-ratelimit-reset-requests', b'25m55.199s'), (b'x-ratelimit-reset-tokens', b'1.588s'), (b'x-request-id', b'req_01kqm31ak7fky8xn6qhwybea5r'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f56457d3e4a9377-MAA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:46:36,184 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:46:36,185 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:46:36,185 - DEBUG - receive_response_body.complete
+2026-05-02 15:46:36,186 - DEBUG - response_closed.started
+2026-05-02 15:46:36,186 - DEBUG - response_closed.complete
+2026-05-02 15:46:36,186 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:16:36 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '982', 'x-ratelimit-remaining-tokens': '29206', 'x-ratelimit-reset-requests': '25m55.199s', 'x-ratelimit-reset-tokens': '1.588s', 'x-request-id': 'req_01kqm31ak7fky8xn6qhwybea5r', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f56457d3e4a9377-MAA', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:46:36,190 - WARNING - session_id=9dd838fb-2522-432c-97f2-7622dc534667 field=phone input=987654321 error=wrong_length retry=3
+2026-05-02 15:46:36,196 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-a56918d7-1e65-48db-810b-792cc70e7f77', 'json_data': {'messages': [{'role': 'user', 'content': "The user entered '987654321' as their phone number but it is invalid. Error type: wrong_length. Retry number 3. Generate a friendly short error message. Return field='phone', error_type='wrong_length', retry_count=3."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'ErrorResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'ErrorResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'error_type': {'type': 'string'}, 'retry_count': {'type': 'integer'}}, 'required': ['message', 'field', 'error_type', 'retry_count'], 'type': 'object'}}}]}}
+2026-05-02 15:46:36,198 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:46:36,198 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:46:36,199 - DEBUG - send_request_headers.complete
+2026-05-02 15:46:36,199 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:46:36,200 - DEBUG - send_request_body.complete
+2026-05-02 15:46:36,200 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:46:36,673 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:16:37 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'981'), (b'x-ratelimit-remaining-tokens', b'28541'), (b'x-ratelimit-reset-requests', b'27m21.6s'), (b'x-ratelimit-reset-tokens', b'2.918s'), (b'x-request-id', b'req_01kqm31ax3fky9pm8zpqw0cxrx'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f56457f496b9377-MAA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:46:36,674 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:46:36,674 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:46:36,675 - DEBUG - receive_response_body.complete
+2026-05-02 15:46:36,675 - DEBUG - response_closed.started
+2026-05-02 15:46:36,675 - DEBUG - response_closed.complete
+2026-05-02 15:46:36,676 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:16:37 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '981', 'x-ratelimit-remaining-tokens': '28541', 'x-ratelimit-reset-requests': '27m21.6s', 'x-ratelimit-reset-tokens': '2.918s', 'x-request-id': 'req_01kqm31ax3fky9pm8zpqw0cxrx', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f56457f496b9377-MAA', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:46:36,687 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-044b2f13-d79c-4407-98e8-1220dd2a080a', 'json_data': {'messages': [{'role': 'user', 'content': "You are a friendly contact form assistant. Ask the user for their 10-digit phone number. Keep it short and friendly. Return field='phone' and status='asking'."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'BotResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'BotResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'status': {'type': 'string'}}, 'required': ['message', 'field', 'status'], 'type': 'object'}}}]}}
+2026-05-02 15:46:36,689 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:46:36,690 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:46:36,690 - DEBUG - send_request_headers.complete
+2026-05-02 15:46:36,691 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:46:36,691 - DEBUG - send_request_body.complete
+2026-05-02 15:46:36,691 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:46:37,112 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:16:37 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'980'), (b'x-ratelimit-remaining-tokens', b'27966'), (b'x-ratelimit-reset-requests', b'28m48s'), (b'x-ratelimit-reset-tokens', b'4.067s'), (b'x-request-id', b'req_01kqm31bccfkzsn09qga7a3y6v'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f5645825e359377-MAA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:46:37,113 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:46:37,113 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:46:37,114 - DEBUG - receive_response_body.complete
+2026-05-02 15:46:37,114 - DEBUG - response_closed.started
+2026-05-02 15:46:37,114 - DEBUG - response_closed.complete
+2026-05-02 15:46:37,115 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:16:37 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '980', 'x-ratelimit-remaining-tokens': '27966', 'x-ratelimit-reset-requests': '28m48s', 'x-ratelimit-reset-tokens': '4.067s', 'x-request-id': 'req_01kqm31bccfkzsn09qga7a3y6v', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f5645825e359377-MAA', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:46:37,185 - INFO - 127.0.0.1 - - [02/May/2026 15:46:37] "POST /chat HTTP/1.1" 200 -
+2026-05-02 15:46:48,516 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-f3500524-0304-4714-a88a-bced159a69ca', 'json_data': {'messages': [{'role': 'user', 'content': "Validate this phone number: '9876543216'. Use the validate_phone_tool."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tools': [{'type': 'function', 'function': {'name': 'validate_phone_tool', 'description': "Validate the user's phone number. Must be exactly 10 digits.", 'parameters': {'properties': {'phone': {'type': 'string'}}, 'required': ['phone'], 'type': 'object'}}}]}}
+2026-05-02 15:46:48,517 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:46:48,518 - DEBUG - close.started
+2026-05-02 15:46:48,518 - DEBUG - close.complete
+2026-05-02 15:46:48,519 - DEBUG - connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=None socket_options=None
+2026-05-02 15:46:48,982 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC11A2B0>
+2026-05-02 15:46:48,983 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000179ABD9EDE0> server_hostname='api.groq.com' timeout=None
+2026-05-02 15:46:49,090 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC68C7D0>
+2026-05-02 15:46:49,090 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:46:49,091 - DEBUG - send_request_headers.complete
+2026-05-02 15:46:49,091 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:46:49,092 - DEBUG - send_request_body.complete
+2026-05-02 15:46:49,092 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:46:49,495 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:16:50 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'979'), (b'x-ratelimit-remaining-tokens', b'29205'), (b'x-ratelimit-reset-requests', b'30m14.4s'), (b'x-ratelimit-reset-tokens', b'1.589s'), (b'x-request-id', b'req_01kqm31qfpfmrs73706r4v07gf'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f5645cfc8ec322e-CJB'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:46:49,496 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:46:49,496 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:46:49,497 - DEBUG - receive_response_body.complete
+2026-05-02 15:46:49,497 - DEBUG - response_closed.started
+2026-05-02 15:46:49,497 - DEBUG - response_closed.complete
+2026-05-02 15:46:49,497 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:16:50 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '979', 'x-ratelimit-remaining-tokens': '29205', 'x-ratelimit-reset-requests': '30m14.4s', 'x-ratelimit-reset-tokens': '1.589s', 'x-request-id': 'req_01kqm31qfpfmrs73706r4v07gf', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f5645cfc8ec322e-CJB', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:46:49,502 - INFO - session_id=9dd838fb-2522-432c-97f2-7622dc534667 field=phone input=9876543216 status=SUCCESS
+2026-05-02 15:46:49,512 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-c955255b-0a65-4d28-8f27-7fd3653bb588', 'json_data': {'messages': [{'role': 'user', 'content': "You are a friendly contact form assistant. Phone number collected successfully. Now ask the user to type their message or query for the team. Keep it short and friendly. Return field='message' and status='asking'."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'BotResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'BotResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'status': {'type': 'string'}}, 'required': ['message', 'field', 'status'], 'type': 'object'}}}]}}
+2026-05-02 15:46:49,515 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:46:49,515 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:46:49,516 - DEBUG - send_request_headers.complete
+2026-05-02 15:46:49,516 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:46:49,517 - DEBUG - send_request_body.complete
+2026-05-02 15:46:49,517 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:46:49,903 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:16:50 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'978'), (b'x-ratelimit-remaining-tokens', b'28618'), (b'x-ratelimit-reset-requests', b'31m40.8s'), (b'x-ratelimit-reset-tokens', b'2.764s'), (b'x-request-id', b'req_01kqm31qx6fmt86cwyrg17bhx3'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f5645d28bf3322e-CJB'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:46:49,904 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:46:49,905 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:46:49,905 - DEBUG - receive_response_body.complete
+2026-05-02 15:46:49,905 - DEBUG - response_closed.started
+2026-05-02 15:46:49,905 - DEBUG - response_closed.complete
+2026-05-02 15:46:49,906 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:16:50 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '978', 'x-ratelimit-remaining-tokens': '28618', 'x-ratelimit-reset-requests': '31m40.8s', 'x-ratelimit-reset-tokens': '2.764s', 'x-request-id': 'req_01kqm31qx6fmt86cwyrg17bhx3', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f5645d28bf3322e-CJB', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:46:49,975 - INFO - 127.0.0.1 - - [02/May/2026 15:46:49] "POST /chat HTTP/1.1" 200 -
+2026-05-02 15:46:57,355 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-7a074506-b9c7-43d0-abe6-cc196a416b11', 'json_data': {'messages': [{'role': 'user', 'content': "You are a friendly contact form assistant. The user named my name is eby has submitted their message: 'hai'. Acknowledge their message warmly, thank them for filling out the form, and tell them the team will get back to them soon. Keep it warm and concise. Return field='done' and status='asking'."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'BotResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'BotResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'status': {'type': 'string'}}, 'required': ['message', 'field', 'status'], 'type': 'object'}}}]}}
+2026-05-02 15:46:57,357 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 15:46:57,357 - DEBUG - close.started
+2026-05-02 15:46:57,358 - DEBUG - close.complete
+2026-05-02 15:46:57,359 - DEBUG - connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=None socket_options=None
+2026-05-02 15:46:57,583 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC68CE10>
+2026-05-02 15:46:57,585 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000179ABD9EDE0> server_hostname='api.groq.com' timeout=None
+2026-05-02 15:46:57,692 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC19BDA0>
+2026-05-02 15:46:57,692 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 15:46:57,693 - DEBUG - send_request_headers.complete
+2026-05-02 15:46:57,693 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 15:46:57,694 - DEBUG - send_request_body.complete
+2026-05-02 15:46:57,694 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 15:46:58,096 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 10:16:58 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'977'), (b'x-ratelimit-remaining-tokens', b'29139'), (b'x-ratelimit-reset-requests', b'33m7.2s'), (b'x-ratelimit-reset-tokens', b'1.722s'), (b'x-request-id', b'req_01kqm31zwhfp7v7ggyamdshc79'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f5646058dd60b22-CJB'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 15:46:58,097 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 15:46:58,097 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 15:46:58,098 - DEBUG - receive_response_body.complete
+2026-05-02 15:46:58,098 - DEBUG - response_closed.started
+2026-05-02 15:46:58,098 - DEBUG - response_closed.complete
+2026-05-02 15:46:58,099 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 10:16:58 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '977', 'x-ratelimit-remaining-tokens': '29139', 'x-ratelimit-reset-requests': '33m7.2s', 'x-ratelimit-reset-tokens': '1.722s', 'x-request-id': 'req_01kqm31zwhfp7v7ggyamdshc79', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f5646058dd60b22-CJB', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 15:46:58,102 - INFO - session_id=9dd838fb-2522-432c-97f2-7622dc534667 form complete — Flask will save contact
+2026-05-02 15:46:58,194 - INFO - session_id=9dd838fb-2522-432c-97f2-7622dc534667 contact saved successfully
+2026-05-02 15:46:58,197 - INFO - 127.0.0.1 - - [02/May/2026 15:46:58] "POST /chat HTTP/1.1" 200 -
+2026-05-02 15:47:16,149 - INFO - 127.0.0.1 - - [02/May/2026 15:47:16] "GET /logs-page HTTP/1.1" 200 -
+2026-05-02 15:47:16,212 - INFO - 127.0.0.1 - - [02/May/2026 15:47:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-02 15:47:16,217 - INFO - 127.0.0.1 - - [02/May/2026 15:47:16] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-02 15:47:16,229 - INFO - 127.0.0.1 - - [02/May/2026 15:47:16] "GET /logs?page=1&limit=10 HTTP/1.1" 200 -
+2026-05-02 15:47:21,040 - INFO - 127.0.0.1 - - [02/May/2026 15:47:21] "GET /logs/9dd838fb-2522-432c-97f2-7622dc534667/conversation HTTP/1.1" 200 -
+2026-05-02 15:47:24,571 - INFO - 127.0.0.1 - - [02/May/2026 15:47:24] "GET /logs/9dd838fb-2522-432c-97f2-7622dc534667/errors HTTP/1.1" 200 -
+2026-05-02 15:47:26,771 - INFO - 127.0.0.1 - - [02/May/2026 15:47:26] "GET /logs/9dd838fb-2522-432c-97f2-7622dc534667/details HTTP/1.1" 200 -
+2026-05-02 15:47:38,139 - INFO - 127.0.0.1 - - [02/May/2026 15:47:38] "GET /logs/9dd838fb-2522-432c-97f2-7622dc534667/errors HTTP/1.1" 200 -
+2026-05-02 15:47:39,356 - INFO - 127.0.0.1 - - [02/May/2026 15:47:39] "GET /logs/9dd838fb-2522-432c-97f2-7622dc534667/conversation HTTP/1.1" 200 -
+2026-05-02 23:33:37,284 - INFO - 127.0.0.1 - - [02/May/2026 23:33:37] "GET /logs/9dd838fb-2522-432c-97f2-7622dc534667/conversation HTTP/1.1" 200 -
+2026-05-02 23:33:45,709 - INFO - 127.0.0.1 - - [02/May/2026 23:33:45] "GET / HTTP/1.1" 200 -
+2026-05-02 23:33:45,737 - INFO - 127.0.0.1 - - [02/May/2026 23:33:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-02 23:33:45,742 - INFO - 127.0.0.1 - - [02/May/2026 23:33:45] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-02 23:33:49,148 - INFO - session_id=f0ea0e59-94b0-4675-8015-14ae98a2f269 new session created
+2026-05-02 23:33:49,168 - INFO - session_id=f0ea0e59-94b0-4675-8015-14ae98a2f269 conversation started
+2026-05-02 23:33:49,175 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-a321b162-30e4-42d7-9d7d-0fd24de47a8c', 'json_data': {'messages': [{'role': 'user', 'content': "You are a friendly contact form assistant. Greet the user warmly and ask for their full name. Keep it short and friendly. Return field='name' and status='asking'."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'BotResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'BotResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'status': {'type': 'string'}}, 'required': ['message', 'field', 'status'], 'type': 'object'}}}]}}
+2026-05-02 23:33:49,180 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 23:33:49,180 - DEBUG - close.started
+2026-05-02 23:33:49,182 - DEBUG - close.complete
+2026-05-02 23:33:49,182 - DEBUG - connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=None socket_options=None
+2026-05-02 23:33:49,184 - DEBUG - connect_tcp.failed exception=ConnectError(gaierror(11001, 'getaddrinfo failed'))
+2026-05-02 23:33:49,198 - DEBUG - Encountered Exception
+Traceback (most recent call last):
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Eby Mathew\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\groq\_base_client.py", line 980, in request
+    response = self._client.send(
+        request,
+        stream=stream or self._should_stream_response_body(request=request),
+        **kwargs,
+    )
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Eby Mathew\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-05-02 23:33:49,384 - DEBUG - 2 retries left
+2026-05-02 23:33:49,384 - INFO - Retrying request to /openai/v1/chat/completions in 0.390207 seconds
+2026-05-02 23:33:49,776 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-a321b162-30e4-42d7-9d7d-0fd24de47a8c', 'json_data': {'messages': [{'role': 'user', 'content': "You are a friendly contact form assistant. Greet the user warmly and ask for their full name. Keep it short and friendly. Return field='name' and status='asking'."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'BotResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'BotResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'status': {'type': 'string'}}, 'required': ['message', 'field', 'status'], 'type': 'object'}}}]}}
+2026-05-02 23:33:49,779 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 23:33:49,780 - DEBUG - connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=None socket_options=None
+2026-05-02 23:33:49,780 - DEBUG - connect_tcp.failed exception=ConnectError(gaierror(11001, 'getaddrinfo failed'))
+2026-05-02 23:33:49,781 - DEBUG - Encountered Exception
+Traceback (most recent call last):
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Eby Mathew\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\groq\_base_client.py", line 980, in request
+    response = self._client.send(
+        request,
+        stream=stream or self._should_stream_response_body(request=request),
+        **kwargs,
+    )
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Eby Mathew\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-05-02 23:33:49,787 - DEBUG - 1 retry left
+2026-05-02 23:33:49,788 - INFO - Retrying request to /openai/v1/chat/completions in 0.802458 seconds
+2026-05-02 23:33:50,591 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-a321b162-30e4-42d7-9d7d-0fd24de47a8c', 'json_data': {'messages': [{'role': 'user', 'content': "You are a friendly contact form assistant. Greet the user warmly and ask for their full name. Keep it short and friendly. Return field='name' and status='asking'."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'BotResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'BotResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'status': {'type': 'string'}}, 'required': ['message', 'field', 'status'], 'type': 'object'}}}]}}
+2026-05-02 23:33:50,592 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 23:33:50,592 - DEBUG - connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=None socket_options=None
+2026-05-02 23:33:50,593 - DEBUG - connect_tcp.failed exception=ConnectError(gaierror(11001, 'getaddrinfo failed'))
+2026-05-02 23:33:50,593 - DEBUG - Encountered Exception
+Traceback (most recent call last):
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Eby Mathew\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\groq\_base_client.py", line 980, in request
+    response = self._client.send(
+        request,
+        stream=stream or self._should_stream_response_body(request=request),
+        **kwargs,
+    )
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Eby Mathew\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\AI_Training\contact-us-assignment\venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-05-02 23:33:50,600 - DEBUG - Raising connection error
+2026-05-02 23:33:50,946 - INFO - 127.0.0.1 - - [02/May/2026 23:33:50] "[35m[1mPOST /chat/start HTTP/1.1[0m" 500 -
+2026-05-02 23:34:13,364 - INFO - 127.0.0.1 - - [02/May/2026 23:34:13] "GET / HTTP/1.1" 200 -
+2026-05-02 23:34:13,381 - INFO - 127.0.0.1 - - [02/May/2026 23:34:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-02 23:34:13,383 - INFO - 127.0.0.1 - - [02/May/2026 23:34:13] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-02 23:34:23,882 - INFO - session_id=a386d7f5-4950-4e37-8d20-4830dd080388 new session created
+2026-05-02 23:34:23,890 - INFO - session_id=a386d7f5-4950-4e37-8d20-4830dd080388 conversation started
+2026-05-02 23:34:23,897 - DEBUG - Request options: {'method': 'post', 'url': '/openai/v1/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-37d2dff9-f631-4b6e-82e8-f97c98868b88', 'json_data': {'messages': [{'role': 'user', 'content': "You are a friendly contact form assistant. Greet the user warmly and ask for their full name. Keep it short and friendly. Return field='name' and status='asking'."}], 'model': 'meta-llama/llama-4-scout-17b-16e-instruct', 'n': 1, 'reasoning_effort': None, 'reasoning_format': None, 'service_tier': 'on_demand', 'stop': None, 'stream': False, 'temperature': 0.7, 'tool_choice': {'type': 'function', 'function': {'name': 'BotResponse'}}, 'tools': [{'type': 'function', 'function': {'name': 'BotResponse', 'description': '', 'parameters': {'properties': {'message': {'type': 'string'}, 'field': {'type': 'string'}, 'status': {'type': 'string'}}, 'required': ['message', 'field', 'status'], 'type': 'object'}}}]}}
+2026-05-02 23:34:23,899 - DEBUG - Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+2026-05-02 23:34:23,900 - DEBUG - connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=None socket_options=None
+2026-05-02 23:34:25,306 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC8BE8D0>
+2026-05-02 23:34:25,306 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000179ABD9EDE0> server_hostname='api.groq.com' timeout=None
+2026-05-02 23:34:25,394 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179AC8E45D0>
+2026-05-02 23:34:25,394 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-05-02 23:34:25,395 - DEBUG - send_request_headers.complete
+2026-05-02 23:34:25,395 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-05-02 23:34:25,396 - DEBUG - send_request_body.complete
+2026-05-02 23:34:25,396 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-05-02 23:34:25,808 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 02 May 2026 18:04:26 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'Server', b'cloudflare'), (b'vary', b'Origin'), (b'x-groq-region', b'bom'), (b'x-ratelimit-limit-requests', b'1000'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'999'), (b'x-ratelimit-remaining-tokens', b'29235'), (b'x-ratelimit-reset-requests', b'1m26.4s'), (b'x-ratelimit-reset-tokens', b'1.529s'), (b'x-request-id', b'req_01kqmxsypwft69g10wnzhp9dfx'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'set-cookie', b'__cf_bm=H5z_.Le_7V7NI.DV3Y8EYwJ6VCndj9Qyg_koHlDta4c-1777745066.6605365-1.0.1.1-zeLPGRsc5KZgvc085_ee1gmJK_WGdcyyXiNTSiZvFa0EWS84CE14_Ib0y8GuPhP8zeGtT6nRfsRWRdc3aV2w8xoE.E0u2q.mOJsFwYuR3iPfKlTdzvrzWzXdAZf5N9ww; HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Sat, 02 May 2026 18:34:26 GMT'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Content-Encoding', b'gzip'), (b'CF-RAY', b'9f58f2ca9e712224-MAA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2026-05-02 23:34:25,810 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-02 23:34:25,810 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-05-02 23:34:25,811 - DEBUG - receive_response_body.complete
+2026-05-02 23:34:25,811 - DEBUG - response_closed.started
+2026-05-02 23:34:25,812 - DEBUG - response_closed.complete
+2026-05-02 23:34:25,812 - DEBUG - HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 02 May 2026 18:04:26 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'server': 'cloudflare', 'vary': 'Origin', 'x-groq-region': 'bom', 'x-ratelimit-limit-requests': '1000', 'x-ratelimit-limit-tokens': '30000', 'x-ratelimit-remaining-requests': '999', 'x-ratelimit-remaining-tokens': '29235', 'x-ratelimit-reset-requests': '1m26.4s', 'x-ratelimit-reset-tokens': '1.529s', 'x-request-id': 'req_01kqmxsypwft69g10wnzhp9dfx', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'set-cookie': '__cf_bm=H5z_.Le_7V7NI.DV3Y8EYwJ6VCndj9Qyg_koHlDta4c-1777745066.6605365-1.0.1.1-zeLPGRsc5KZgvc085_ee1gmJK_WGdcyyXiNTSiZvFa0EWS84CE14_Ib0y8GuPhP8zeGtT6nRfsRWRdc3aV2w8xoE.E0u2q.mOJsFwYuR3iPfKlTdzvrzWzXdAZf5N9ww; HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Sat, 02 May 2026 18:34:26 GMT', 'strict-transport-security': 'max-age=15552000', 'content-encoding': 'gzip', 'cf-ray': '9f58f2ca9e712224-MAA', 'alt-svc': 'h3=":443"; ma=86400'})
+2026-05-02 23:34:25,843 - INFO - 127.0.0.1 - - [02/May/2026 23:34:25] "POST /chat/start HTTP/1.1" 200 -
+2026-05-03 14:41:37,349 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-03 14:41:37,350 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-03 14:41:37,353 - INFO -  * Restarting with stat
+2026-05-03 14:41:39,168 - WARNING -  * Debugger is active!
+2026-05-03 14:41:39,179 - INFO -  * Debugger PIN: 144-142-816
+2026-05-03 14:42:42,644 - INFO -  * Detected change in 'C:\\AI_Training\\contact-us-assignment\\app.py', reloading
+2026-05-03 14:42:42,955 - INFO -  * Restarting with stat
+2026-05-03 14:42:49,091 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-03 14:42:49,091 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-03 14:42:49,093 - INFO -  * Restarting with stat
+2026-05-03 14:42:50,931 - WARNING -  * Debugger is active!
+2026-05-03 14:42:50,933 - INFO -  * Debugger PIN: 144-142-816
+2026-05-03 14:43:34,622 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-03 14:43:34,623 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-03 14:43:34,624 - INFO -  * Restarting with stat
+2026-05-03 14:43:36,269 - WARNING -  * Debugger is active!
+2026-05-03 14:43:36,278 - INFO -  * Debugger PIN: 144-142-816
+2026-05-03 14:43:47,531 - INFO -  * Detected change in 'C:\\AI_Training\\contact-us-assignment\\app.py', reloading
+2026-05-03 14:43:47,849 - INFO -  * Restarting with stat
+2026-05-03 14:43:54,440 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-03 14:43:54,440 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-03 14:43:54,442 - INFO -  * Restarting with stat
+2026-05-03 14:43:56,292 - WARNING -  * Debugger is active!
+2026-05-03 14:43:56,293 - INFO -  * Debugger PIN: 144-142-816
+2026-05-03 14:45:14,179 - INFO -  * Detected change in 'C:\\AI_Training\\contact-us-assignment\\app.py', reloading
+2026-05-03 14:45:14,475 - INFO -  * Restarting with stat
+2026-05-03 14:45:19,656 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-03 14:45:19,656 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-03 14:45:25,419 - INFO - 127.0.0.1 - - [03/May/2026 14:45:25] "GET / HTTP/1.1" 200 -
+2026-05-03 14:45:25,505 - INFO - 127.0.0.1 - - [03/May/2026 14:45:25] "GET /static/style.css HTTP/1.1" 200 -
+2026-05-03 14:45:25,506 - INFO - 127.0.0.1 - - [03/May/2026 14:45:25] "GET /static/script.js HTTP/1.1" 200 -
+2026-05-03 14:45:26,448 - INFO - 127.0.0.1 - - [03/May/2026 14:45:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-05-03 14:45:34,047 - INFO - 127.0.0.1 - - [03/May/2026 14:45:34] "GET / HTTP/1.1" 200 -
+2026-05-03 14:45:34,120 - INFO - 127.0.0.1 - - [03/May/2026 14:45:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-03 14:45:34,121 - INFO - 127.0.0.1 - - [03/May/2026 14:45:34] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-03 14:46:28,527 - INFO - 127.0.0.1 - - [03/May/2026 14:46:28] "GET / HTTP/1.1" 200 -
+2026-05-03 14:46:28,597 - INFO - 127.0.0.1 - - [03/May/2026 14:46:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-03 14:46:28,599 - INFO - 127.0.0.1 - - [03/May/2026 14:46:28] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-03 14:46:38,202 - INFO - 127.0.0.1 - - [03/May/2026 14:46:38] "GET /logs-page HTTP/1.1" 200 -
+2026-05-03 14:46:38,225 - INFO - 127.0.0.1 - - [03/May/2026 14:46:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-03 14:46:38,226 - INFO - 127.0.0.1 - - [03/May/2026 14:46:38] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-03 14:46:38,250 - INFO - 127.0.0.1 - - [03/May/2026 14:46:38] "GET /logs?page=1&limit=10 HTTP/1.1" 200 -
+2026-05-03 14:46:43,703 - INFO - 127.0.0.1 - - [03/May/2026 14:46:43] "GET / HTTP/1.1" 200 -
+2026-05-03 14:46:43,715 - INFO - 127.0.0.1 - - [03/May/2026 14:46:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-03 14:46:43,715 - INFO - 127.0.0.1 - - [03/May/2026 14:46:43] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-03 14:48:06,614 - INFO - 127.0.0.1 - - [03/May/2026 14:48:06] "GET / HTTP/1.1" 200 -
+2026-05-03 14:48:06,719 - INFO - 127.0.0.1 - - [03/May/2026 14:48:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-03 14:48:06,729 - INFO - 127.0.0.1 - - [03/May/2026 14:48:06] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-03 14:49:34,556 - INFO - 127.0.0.1 - - [03/May/2026 14:49:34] "GET / HTTP/1.1" 200 -
+2026-05-03 14:49:34,754 - INFO - 127.0.0.1 - - [03/May/2026 14:49:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-03 14:49:34,779 - INFO - 127.0.0.1 - - [03/May/2026 14:49:34] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-03 14:50:03,353 - INFO - 127.0.0.1 - - [03/May/2026 14:50:03] "GET / HTTP/1.1" 200 -
+2026-05-03 14:50:03,482 - INFO - 127.0.0.1 - - [03/May/2026 14:50:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-03 14:50:03,483 - INFO - 127.0.0.1 - - [03/May/2026 14:50:03] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-03 14:50:47,164 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-03 14:50:47,164 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-03 14:50:47,168 - INFO -  * Restarting with stat
+2026-05-03 14:50:49,027 - WARNING -  * Debugger is active!
+2026-05-03 14:50:49,030 - INFO -  * Debugger PIN: 144-142-816
+2026-05-03 14:50:56,134 - INFO - 127.0.0.1 - - [03/May/2026 14:50:56] "GET / HTTP/1.1" 200 -
+2026-05-03 14:50:56,251 - INFO - 127.0.0.1 - - [03/May/2026 14:50:56] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-03 14:50:56,252 - INFO - 127.0.0.1 - - [03/May/2026 14:50:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-03 14:54:06,517 - INFO -  * Detected change in 'C:\\AI_Training\\contact-us-assignment\\app.py', reloading
+2026-05-03 14:54:06,757 - INFO -  * Restarting with stat
+2026-05-03 14:54:08,553 - WARNING -  * Debugger is active!
+2026-05-03 14:54:08,555 - INFO -  * Debugger PIN: 144-142-816
+2026-05-03 14:54:14,457 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-03 14:54:14,457 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-03 14:54:26,117 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-03 14:54:26,118 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-03 14:54:51,864 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-03 14:54:51,864 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-03 14:54:56,236 - INFO - 127.0.0.1 - - [03/May/2026 14:54:56] "GET / HTTP/1.1" 200 -
+2026-05-03 14:54:56,338 - INFO - 127.0.0.1 - - [03/May/2026 14:54:56] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-03 14:54:56,343 - INFO - 127.0.0.1 - - [03/May/2026 14:54:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-03 14:56:22,990 - INFO - 127.0.0.1 - - [03/May/2026 14:56:22] "GET / HTTP/1.1" 200 -
+2026-05-03 14:56:23,046 - INFO - 127.0.0.1 - - [03/May/2026 14:56:23] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-03 14:56:23,047 - INFO - 127.0.0.1 - - [03/May/2026 14:56:23] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-03 14:56:29,773 - INFO - 127.0.0.1 - - [03/May/2026 14:56:29] "GET / HTTP/1.1" 200 -
+2026-05-03 14:56:29,805 - INFO - 127.0.0.1 - - [03/May/2026 14:56:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-05-03 14:56:29,821 - INFO - 127.0.0.1 - - [03/May/2026 14:56:29] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-03 14:56:29,885 - INFO - 127.0.0.1 - - [03/May/2026 14:56:29] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-05-03 14:58:43,771 - INFO - 127.0.0.1 - - [03/May/2026 14:58:43] "GET / HTTP/1.1" 200 -
+2026-05-03 14:58:43,835 - INFO - 127.0.0.1 - - [03/May/2026 14:58:43] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2026-05-03 14:58:43,836 - INFO - 127.0.0.1 - - [03/May/2026 14:58:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -

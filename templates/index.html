@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ContactBot — Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">ContactBot</div>
+    <div class="header-actions">
+      <a href="/logs-page" class="btn-icon">📋 Admin Logs</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>We're here to help</h1>
+      <p>Have a question or need to reach us? Click the chat button below and our bot will collect your details instantly.</p>
+    </section>
+  </main>
+
+  <div class="fab-container">
+    <button class="fab fab-chat" id="open-chat" title="Open Chat">💬</button>
+  </div>
+
+  <div class="chat-widget" id="chat-widget">
+    <div class="chat-header">
+      <div>
+        <div class="chat-header-title">ContactBot</div>
+        <div class="chat-header-sub">We'll get back to you soon</div>
+      </div>
+      <button class="chat-close" id="close-chat">✕</button>
+    </div>
+    <div class="chat-messages" id="chat-messages"></div>
+    <div class="chat-input-area">
+      <input type="text" id="chat-input" placeholder="Type your message..." autocomplete="off" />
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
