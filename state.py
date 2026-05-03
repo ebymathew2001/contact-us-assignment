@@ -30,3 +30,13 @@ class ErrorResponse(BaseModel):
     field: str          # which field failed
     error_type: str     # what was wrong — logged via logger.warning()
     retry_count: int    # how many times user has tried
+
+
+class ExtractedName(BaseModel):
+    name: str
+
+class ExtractedEmail(BaseModel):
+    email: str
+
+class ExtractedPhone(BaseModel):
+    phone: str

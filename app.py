@@ -141,13 +141,7 @@ def chat():
         "session_id": session_id,
         "is_complete": result.get("is_complete", False)
     })
-    logger.info(f"session_id={session_id} contact saved successfully")
-
-    return jsonify({
-        "response": bot_reply,
-        "session_id": session_id,
-        "is_complete": result.get("is_complete", False)
-    })
+   
 
 
 # ─────────────────────────────────────────────
