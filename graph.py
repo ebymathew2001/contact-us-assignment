@@ -1,5 +1,7 @@
 # graph.py
 import sqlite3
+from dotenv import load_dotenv
+load_dotenv()
 from langgraph.graph import StateGraph, END
 from langgraph.checkpoint.sqlite import SqliteSaver
 from state import ContactState

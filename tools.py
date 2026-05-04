@@ -66,5 +66,26 @@ def validate_phone_tool(phone: str) -> dict:
             "error_type": "wrong_digit_count",
             "message": f"You entered {len(phone)} digits, but a phone number must be exactly 10 digits. Please check and try again.",
         }
+    if phone[0] == '0':
+        return {
+            "valid": False,
+            "error_type": "starts_with_zero",
+            "message": f"'{phone}' starts with 0, which is not valid. Please enter a 10-digit number starting with a non-zero digit.",
+        }
+
+    if len(set(phone)) == 1:
+        return {
+            "valid": False,
+            "error_type": "repeated_digits",
+            "message": f"'{phone}' looks like a repeated digit number, which is not valid. Please enter your actual phone number.",
+        }
+
+    if phone in ['1234567890', '0987654321', '9876543210', '1111111111']:
+        return {
+            "valid": False,
+            "error_type": "sequential_number",
+            "message": f"'{phone}' looks like a test or sequential number. Please enter your actual phone number.",
+        }
+
 
     return {"valid": True, "error_type": None, "message": "Phone number is valid."}
