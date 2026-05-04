@@ -17,8 +17,8 @@ def validate_name_tool(name: str) -> dict:
     if len(name) < 2:
         return {"valid": False, "error_type": "name_too_short", "message": "That name is too short. Please enter your full name."}  # ← CHANGED: message more specific
 
-    if not re.match(r"^[a-zA-Z\s]+$", name):
-        return {"valid": False, "error_type": "special_characters", "message": "Names can only contain letters and spaces. No symbols or punctuation."}  # ← CHANGED: message more specific
+    if not re.match(r"^[a-zA-Z\s\-']+$", name):
+        return {"valid": False, "error_type": "special_characters", "message": "Names can only contain letters, spaces, hyphens, or apostrophes. No other symbols."}
 
     return {"valid": True, "error_type": None, "message": "Name is valid."}
 

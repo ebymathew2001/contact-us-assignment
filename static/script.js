@@ -23,13 +23,15 @@ if (chatWidget) {
   let chatStarted = false;
   let isComplete = false;
 
-  openChatBtn.addEventListener('click', async () => {
+ openChatBtn.addEventListener('click', async () => {
     chatWidget.classList.add('open');
-    if (!chatStarted) {
-      chatStarted = true;
-      sessionId = generateUUID();
-      await startChat();
-    }
+    chatStarted = true;
+    isComplete = false;
+    sessionId = generateUUID();
+    chatMessages.innerHTML = '';
+    setInputEnabled(true);
+    chatInput.placeholder = 'Type your message...';
+    await startChat();
   });
 
   closeChatBtn.addEventListener('click', () => {
