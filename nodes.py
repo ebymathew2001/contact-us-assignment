@@ -7,7 +7,8 @@ import os
 
 # Initialize LLM — Groq API
 llm = ChatGroq(
-    model="meta-llama/llama-4-scout-17b-16e-instruct",
+    model="llama-3.1-8b-instant",
+    #model="meta-llama/llama-4-scout-17b-16e-instruct",
     api_key=os.environ.get("GROQ_API_KEY")
 )
 
@@ -19,32 +20,59 @@ llm = ChatGroq(
 # ─────────────────────────────────────────────
 def askName(state: ContactState) -> ContactState:
     session_id = state["session_id"]
-    logger.info(f"session_id={session_id} conversation started")
+    retry_count = state.get("retry_count", 0)
+    validation_error = state.get("validation_error", "")
 
-    structured_llm = llm.with_structured_output(BotResponse)
-    response = structured_llm.invoke(
-        "You are a friendly contact form assistant. Greet the user warmly and ask for their full name. "
-        "Keep it short and friendly. Return field='name' and status='asking'."
-    )
+    if retry_count > 0 and validation_error:
+        try:
+            structured_llm = llm.with_structured_output(BotResponse)
+            prompt = (
+                f"You are a friendly contact form assistant. "
+                f"The user tried to enter their name but it was invalid. "
+                f"The specific reason: {validation_error} "
+                f"Write a SHORT warm reply (1-2 sentences) that explains the problem "
+                f"and asks them to try again. Do NOT say Hi or Hello. "
+                f"Return field='name' and status='asking'."
+            )
+            response = structured_llm.invoke(prompt)
+            message = response.message
+        except Exception as e:
+            logger.error(f"session_id={session_id} askName LLM error: {e}")
+            message = f"That name didn't work — {validation_error} Please try again."
+    else:
+        try:
+            structured_llm = llm.with_structured_output(BotResponse)
+            prompt = (
+                "You are a friendly contact form assistant. "
+                "Greet the user warmly and ask for their full name. "
+                "Keep it short and friendly. Return field='name' and status='asking'."
+            )
+            response = structured_llm.invoke(prompt)
+            message = response.message
+        except Exception as e:
+            logger.error(f"session_id={session_id} askName LLM error: {e}")
+            message = "Hi there! Could you please share your full name to get started?"
 
+    logger.info(f"session_id={session_id} askName retry={retry_count}")
     return {
         **state,
         "current_field": "name",
-        "bot_message": response.message,
+        "bot_message": message,
+        "validation_error": "",
         "system_error": {}
     }
 
-
 # ─────────────────────────────────────────────
 # NODE 2 — validateName
-# Validates user input. On failure, sets bot_message to the error
-# and routes back to itself (not askName) so the error is shown directly.
+# Extracts + validates name.
+# On failure: writes validation_error to state, routes back to askName.
+# askName reads validation_error and generates the error message.
 # ─────────────────────────────────────────────
 def validateName(state: ContactState) -> ContactState:
     session_id = state["session_id"]
     raw_input = state.get("name", "").strip()
 
-    # ── Edge case: user submitted empty/whitespace ──
+    # ── Edge case: empty input ──
     if not raw_input:
         retry_count = state.get("retry_count", 0) + 1
         logger.warning(f"session_id={session_id} field=name input=EMPTY retry={retry_count}")
@@ -52,31 +80,40 @@ def validateName(state: ContactState) -> ContactState:
             **state,
             "is_valid": False,
             "retry_count": retry_count,
-            "bot_message": "It looks like you didn't type anything! Could you please enter your full name?",
+            "validation_error": "You didn't type anything. Please enter your full name.",
+            "bot_message": "",
             "system_error": {}
         }
 
     try:
-        # STEP 1 — Extract clean name (remove "my name is", "I am", etc.)
+        # STEP 1 — Extract clean name
         structured_llm = llm.with_structured_output(ExtractedName)
         extracted = structured_llm.invoke(
             f"Extract ONLY the person's actual name from this input: '{raw_input}'. "
-            f"Remove phrases like 'my name is', 'I am', 'call me', etc. "
-            f"If the input contains no recognisable name (e.g. it is a number, symbol, or unrelated question), "
-            f"return the input as-is so it can be validated and rejected. "
-            f"Return just the name itself, nothing else."
+            f"Rules: "
+            f"1) Remove filler phrases like 'my name is', 'I am', 'call me', 'it is', etc. "
+            f"2) Return ONLY the name words themselves, nothing else. "
+            f"3) If the input is a number, symbol, or unrelated sentence, return it as-is. "
+            f"4) Do NOT interpret or invent — return exactly what remains after removing filler. "
+            f"Examples: "
+            f"'my name is eby mathew' → 'eby mathew' "
+            f"'I am john' → 'john' "
+            f"'my name is full name' → 'full name' "
+            f"'123' → '123' "
+            f"'what is the weather' → 'what is the weather' "
         )
         clean_name = extracted.name.strip() if extracted.name else raw_input.strip()
         logger.info(f"RAW NAME: {raw_input} | CLEAN NAME: {clean_name}")
 
-        # Guard: if extraction returned empty
+        # Guard: extraction returned empty
         if not clean_name:
             retry_count = state.get("retry_count", 0) + 1
             return {
                 **state,
                 "is_valid": False,
                 "retry_count": retry_count,
-                "bot_message": "I couldn't catch your name from that. Could you type just your full name?",
+                "validation_error": "I couldn't find a name in that input. Please type just your full name.",
+                "bot_message": "",
                 "system_error": {}
             }
 
@@ -92,9 +129,8 @@ def validateName(state: ContactState) -> ContactState:
                 validation_result = validate_name_tool.invoke(tool_call["args"])
                 break
 
-        # Guard: tool never called (LLM didn't call the tool)
+        # Guard: tool never called
         if validation_result is None:
-            # Fall back to direct tool call
             validation_result = validate_name_tool.invoke({"name": clean_name})
 
         # STEP 3 — Success
@@ -105,35 +141,23 @@ def validateName(state: ContactState) -> ContactState:
                 "name": clean_name,
                 "is_valid": True,
                 "retry_count": 0,
+                "validation_error": "",
+                "bot_message": "",
                 "system_error": {}
             }
 
-        # STEP 4 — Validation failed — generate specific error message
+        # STEP 4 — Failure: write error to state, askName will generate the message
         error_type = validation_result.get("error_type", "unknown_error")
         tool_message = validation_result.get("message", "")
         retry_count = state.get("retry_count", 0) + 1
         logger.warning(f"session_id={session_id} field=name input={clean_name} error={error_type} retry={retry_count}")
 
-        structured_llm = llm.with_structured_output(ErrorResponse)
-        error_response = structured_llm.invoke(
-            f"You are a friendly contact form assistant. The user was asked for their full name. "
-            f"They entered: '{clean_name}'. "
-            f"This failed validation. The specific reason is: {tool_message} "
-            f"Write a SHORT, warm reply (1-2 sentences) that: "
-            f"1) acknowledges what they typed, "
-            f"2) explains the exact problem in plain language, "
-            f"3) asks them to try again. "
-            f"Do NOT say 'Hi' or 'Hello'. Do NOT greet them again. "
-            f"Do NOT sound like you are asking for their name for the first time. "
-            f"This is retry attempt {retry_count}. "
-            f"Return field='name', error_type='{error_type}', retry_count={retry_count}."
-        )
-
         return {
             **state,
             "is_valid": False,
             "retry_count": retry_count,
-            "bot_message": error_response.message,
+            "validation_error": tool_message,   # askName reads this
+            "bot_message": "",                   # askName sets this
             "system_error": {}
         }
 
@@ -144,7 +168,8 @@ def validateName(state: ContactState) -> ContactState:
             **state,
             "is_valid": False,
             "retry_count": state.get("retry_count", 0) + 1,
-            "bot_message": "Sorry, something went wrong. Please try entering your name again.",
+            "validation_error": "Something went wrong while checking your name. Please try again.",
+            "bot_message": "",
             "system_error": {
                 "node": "validateName",
                 "error_type": "tool_error",
@@ -160,32 +185,61 @@ def validateName(state: ContactState) -> ContactState:
 # ─────────────────────────────────────────────
 def askEmail(state: ContactState) -> ContactState:
     session_id = state["session_id"]
+    retry_count = state.get("retry_count", 0)
+    validation_error = state.get("validation_error", "")
 
-    structured_llm = llm.with_structured_output(BotResponse)
-    response = structured_llm.invoke(
-        f"You are a friendly contact form assistant. The user's name is {state.get('name', 'there')}. "
-        f"Ask for their email address in a friendly way. Keep it short (1 sentence). "
-        f"Do NOT say Hi or Hello — just ask for the email. "
-        f"Return field='email' and status='asking'."
-    )
+    if retry_count > 0 and validation_error:
+        try:
+            structured_llm = llm.with_structured_output(BotResponse)
+            prompt = (
+                f"You are a friendly contact form assistant. "
+                f"The user tried to enter their email but it was invalid. "
+                f"The specific reason: {validation_error} "
+                f"Write a SHORT warm reply (1-2 sentences) that explains the problem, "
+                f"shows an example like name@example.com, and asks them to try again. "
+                f"Do NOT say Hi or Hello. "
+                f"Return field='email' and status='asking'."
+            )
+            response = structured_llm.invoke(prompt)
+            message = response.message
+        except Exception as e:
+            logger.error(f"session_id={session_id} askEmail LLM error: {e}")
+            message = f"That email didn't work — {validation_error} Please try again (e.g. name@example.com)."
+    else:
+        try:
+            structured_llm = llm.with_structured_output(BotResponse)
+            prompt = (
+                f"You are a friendly contact form assistant. "
+                f"The user's name is {state.get('name', 'there')}. "
+                f"Ask for their email address in a friendly way. "
+                f"Keep it short (1 sentence). Do NOT say Hi or Hello. "
+                f"Return field='email' and status='asking'."
+            )
+            response = structured_llm.invoke(prompt)
+            message = response.message
+        except Exception as e:
+            logger.error(f"session_id={session_id} askEmail LLM error: {e}")
+            message = f"Thanks {state.get('name', 'there')}! Could you share your email address?"
 
+    logger.info(f"session_id={session_id} askEmail retry={retry_count}")
     return {
         **state,
         "current_field": "email",
-        "bot_message": response.message,
+        "bot_message": message,
+        "validation_error": "",
         "system_error": {}
     }
 
 
 # ─────────────────────────────────────────────
 # NODE 4 — validateEmail
-# On failure, sets bot_message to specific error and routes back to itself.
+# On failure: writes validation_error, routes back to askEmail.
 # ─────────────────────────────────────────────
 def validateEmail(state: ContactState) -> ContactState:
     session_id = state["session_id"]
     raw_input = state.get("email", "").strip()
 
-    # ── Edge case: user submitted empty/whitespace ──
+    # ── Edge case: empty input ──
     if not raw_input:
         retry_count = state.get("retry_count", 0) + 1
         logger.warning(f"session_id={session_id} field=email input=EMPTY retry={retry_count}")
@@ -193,7 +247,8 @@ def validateEmail(state: ContactState) -> ContactState:
             **state,
             "is_valid": False,
             "retry_count": retry_count,
-            "bot_message": "It looks like you didn't type anything! Please enter your email address (e.g. name@example.com).",
+            "validation_error": "You didn't type anything. Please enter your email address (e.g. name@example.com).",
+            "bot_message": "",
             "system_error": {}
         }
 
@@ -215,7 +270,8 @@ def validateEmail(state: ContactState) -> ContactState:
                 **state,
                 "is_valid": False,
                 "retry_count": retry_count,
-                "bot_message": "I couldn't find an email address in that. Could you type just your email? (e.g. name@example.com)",
+                "validation_error": "I couldn't find an email address in that. Please type just your email (e.g. name@example.com).",
+                "bot_message": "",
                 "system_error": {}
             }
 
@@ -243,36 +299,23 @@ def validateEmail(state: ContactState) -> ContactState:
                 "email": clean_email,
                 "is_valid": True,
                 "retry_count": 0,
+                "validation_error": "",
+                "bot_message": "",
                 "system_error": {}
             }
 
-        # STEP 4 — Validation failed
+        # STEP 4 — Failure: write error to state, askEmail will generate the message
         error_type = validation_result.get("error_type", "invalid_format")
         tool_message = validation_result.get("message", "")
         retry_count = state.get("retry_count", 0) + 1
         logger.warning(f"session_id={session_id} field=email input={clean_email} error={error_type} retry={retry_count}")
 
-        structured_llm = llm.with_structured_output(ErrorResponse)
-        error_response = structured_llm.invoke(
-            f"You are a friendly contact form assistant. The user was asked for their email address. "
-            f"They entered: '{clean_email}'. "
-            f"This failed validation. The specific reason is: {tool_message} "
-            f"Write a SHORT, warm reply (1-2 sentences) that: "
-            f"1) acknowledges what they typed, "
-            f"2) explains the exact problem clearly (e.g. missing @, incomplete domain), "
-            f"3) shows a quick example like name@example.com, "
-            f"4) asks them to try again. "
-            f"Do NOT say 'Hi' or 'Hello'. Do NOT greet them again. "
-            f"Do NOT sound like this is the first time asking. "
-            f"This is retry attempt {retry_count}. "
-            f"Return field='email', error_type='{error_type}', retry_count={retry_count}."
-        )
-
         return {
             **state,
             "is_valid": False,
             "retry_count": retry_count,
-            "bot_message": error_response.message,
+            "validation_error": tool_message,   # askEmail reads this
+            "bot_message": "",                   # askEmail sets this
             "system_error": {}
         }
 
@@ -283,7 +326,8 @@ def validateEmail(state: ContactState) -> ContactState:
             **state,
             "is_valid": False,
             "retry_count": state.get("retry_count", 0) + 1,
-            "bot_message": "Sorry, something went wrong. Please try entering your email again.",
+            "validation_error": "Something went wrong while checking your email. Please try again.",
+            "bot_message": "",
             "system_error": {
                 "node": "validateEmail",
                 "error_type": "tool_error",
@@ -294,35 +338,64 @@ def validateEmail(state: ContactState) -> ContactState:
 
 # ─────────────────────────────────────────────
 # NODE 5 — askPhone
-# ONLY runs after email is successfully validated.
+# First time: ask for phone friendly.
+# Retry: show specific error from validation_error, ask again.
 # ─────────────────────────────────────────────
 def askPhone(state: ContactState) -> ContactState:
     session_id = state["session_id"]
+    retry_count = state.get("retry_count", 0)
+    validation_error = state.get("validation_error", "")
 
-    structured_llm = llm.with_structured_output(BotResponse)
-    response = structured_llm.invoke(
-        "You are a friendly contact form assistant. Ask the user for their 10-digit phone number. "
-        "Keep it short (1 sentence). Do NOT say Hi or Hello. "
-        "Return field='phone' and status='asking'."
-    )
+    if retry_count > 0 and validation_error:
+        try:
+            structured_llm = llm.with_structured_output(BotResponse)
+            prompt = (
+                f"You are a friendly contact form assistant. "
+                f"The user tried to enter their phone number but it was invalid. "
+                f"The specific reason: {validation_error} "
+                f"Write a SHORT warm reply (1-2 sentences) that explains the problem, "
+                f"reminds them it must be exactly 10 digits, and asks them to try again. "
+                f"Do NOT say Hi or Hello. "
+                f"Return field='phone' and status='asking'."
+            )
+            response = structured_llm.invoke(prompt)
+            message = response.message
+        except Exception as e:
+            logger.error(f"session_id={session_id} askPhone LLM error: {e}")
+            message = f"That phone number didn't work — {validation_error} Please enter exactly 10 digits."
+    else:
+        try:
+            structured_llm = llm.with_structured_output(BotResponse)
+            prompt = (
+                "You are a friendly contact form assistant. "
+                "Ask the user for their 10-digit phone number. "
+                "Keep it short (1 sentence). Do NOT say Hi or Hello. "
+                "Return field='phone' and status='asking'."
+            )
+            response = structured_llm.invoke(prompt)
+            message = response.message
+        except Exception as e:
+            logger.error(f"session_id={session_id} askPhone LLM error: {e}")
+            message = "Could you please share your 10-digit phone number? (digits only)"
 
+    logger.info(f"session_id={session_id} askPhone retry={retry_count}")
     return {
         **state,
         "current_field": "phone",
-        "bot_message": response.message,
+        "bot_message": message,
+        "validation_error": "",
         "system_error": {}
     }
 
-
 # ─────────────────────────────────────────────
 # NODE 6 — validatePhone
-# On failure, sets bot_message to specific error and routes back to itself.
+# On failure: writes validation_error, routes back to askPhone.
 # ─────────────────────────────────────────────
 def validatePhone(state: ContactState) -> ContactState:
     session_id = state["session_id"]
     raw_input = state.get("phone", "").strip()
 
-    # ── Edge case: user submitted empty/whitespace ──
+    # ── Edge case: empty input ──
     if not raw_input:
         retry_count = state.get("retry_count", 0) + 1
         logger.warning(f"session_id={session_id} field=phone input=EMPTY retry={retry_count}")
@@ -330,7 +403,8 @@ def validatePhone(state: ContactState) -> ContactState:
             **state,
             "is_valid": False,
             "retry_count": retry_count,
-            "bot_message": "It looks like you didn't type anything! Please enter your 10-digit phone number (digits only).",
+            "validation_error": "You didn't type anything. Please enter your 10-digit phone number (digits only).",
+            "bot_message": "",
             "system_error": {}
         }
 
@@ -354,7 +428,8 @@ def validatePhone(state: ContactState) -> ContactState:
                 **state,
                 "is_valid": False,
                 "retry_count": retry_count,
-                "bot_message": "I couldn't find a phone number in that. Please enter just the 10 digits of your phone number.",
+                "validation_error": "I couldn't find a phone number in that. Please enter just the 10 digits of your phone number.",
+                "bot_message": "",
                 "system_error": {}
             }
 
@@ -382,36 +457,23 @@ def validatePhone(state: ContactState) -> ContactState:
                 "phone": clean_phone,
                 "is_valid": True,
                 "retry_count": 0,
+                "validation_error": "",
+                "bot_message": "",
                 "system_error": {}
             }
 
-        # STEP 4 — Validation failed
+        # STEP 4 — Failure: write error to state, askPhone will generate the message
         error_type = validation_result.get("error_type", "invalid_phone")
         tool_message = validation_result.get("message", "")
         retry_count = state.get("retry_count", 0) + 1
         logger.warning(f"session_id={session_id} field=phone input={clean_phone} error={error_type} retry={retry_count}")
 
-        structured_llm = llm.with_structured_output(ErrorResponse)
-        error_response = structured_llm.invoke(
-            f"You are a friendly contact form assistant. The user was asked for their 10-digit phone number. "
-            f"They entered: '{clean_phone}'. "
-            f"This failed validation. The specific reason is: {tool_message} "
-            f"Write a SHORT, warm reply (1-2 sentences) that: "
-            f"1) acknowledges what they typed, "
-            f"2) states the exact problem (wrong digit count, contains letters, etc.), "
-            f"3) reminds them it must be exactly 10 digits, numbers only, "
-            f"4) asks them to try again. "
-            f"Do NOT say 'Hi' or 'Hello'. Do NOT greet them again. "
-            f"Do NOT sound like this is the first time asking. "
-            f"This is retry attempt {retry_count}. "
-            f"Return field='phone', error_type='{error_type}', retry_count={retry_count}."
-        )
-
         return {
             **state,
             "is_valid": False,
             "retry_count": retry_count,
-            "bot_message": error_response.message,
+            "validation_error": tool_message,   # askPhone reads this
+            "bot_message": "",                   # askPhone sets this
             "system_error": {}
         }
 
@@ -422,39 +484,131 @@ def validatePhone(state: ContactState) -> ContactState:
             **state,
             "is_valid": False,
             "retry_count": state.get("retry_count", 0) + 1,
-            "bot_message": "Sorry, something went wrong. Please try entering your phone number again.",
+            "validation_error": "Something went wrong while checking your phone number. Please try again.",
+            "bot_message": "",
             "system_error": {
                 "node": "validatePhone",
                 "error_type": "tool_error",
                 "message": error_msg
             }
         }
+    
 
 
 # ─────────────────────────────────────────────
 # NODE 7 — askMessage
+# First time: ask for message.
+# Retry: show specific validation error.
 # ─────────────────────────────────────────────
 def askMessage(state: ContactState) -> ContactState:
     session_id = state["session_id"]
+    retry_count = state.get("retry_count", 0)
+    validation_error = state.get("validation_error", "")
 
-    structured_llm = llm.with_structured_output(BotResponse)
-    response = structured_llm.invoke(
-        f"You are a friendly contact form assistant. All details collected. "
-        f"Now ask the user to type their message or query for the team. "
-        f"Keep it short and warm (1-2 sentences). Do NOT say Hi or Hello again. "
-        f"Return field='message' and status='asking'."
-    )
+    if retry_count > 0 and validation_error:
+        try:
+            structured_llm = llm.with_structured_output(BotResponse)
+            prompt = (
+                f"You are a friendly contact form assistant. "
+                f"The user tried to submit their message but it was invalid. "
+                f"The specific reason: {validation_error} "
+                f"Write a SHORT warm reply (1-2 sentences) that explains the problem "
+                f"and asks them to try again. Do NOT say Hi or Hello. "
+                f"Return field='message' and status='asking'."
+            )
+            response = structured_llm.invoke(prompt)
+            message = response.message
+        except Exception as e:
+            logger.error(f"session_id={session_id} askMessage LLM error: {e}")
+            message = f"Your message didn't go through — {validation_error} Please try again."
+    else:
+        try:
+            structured_llm = llm.with_structured_output(BotResponse)
+            prompt = (
+                "You are a friendly contact form assistant. All details collected. "
+                "Now ask the user to type their message or query for the team. "
+                "Keep it short and warm (1-2 sentences). Do NOT say Hi or Hello again. "
+                "Return field='message' and status='asking'."
+            )
+            response = structured_llm.invoke(prompt)
+            message = response.message
+        except Exception as e:
+            logger.error(f"session_id={session_id} askMessage LLM error: {e}")
+            message = "Almost done! Please type your message or query for our team."
 
+    logger.info(f"session_id={session_id} askMessage retry={retry_count}")
     return {
         **state,
         "current_field": "message",
-        "bot_message": response.message,
+        "bot_message": message,
+        "validation_error": "",
+        "system_error": {}
+    }
+# ─────────────────────────────────────────────
+# NODE 8 — validateMessage
+# Simple checks only — no LLM extraction, no tool calling needed.
+# On failure: writes validation_error, routes back to askMessage.
+# ─────────────────────────────────────────────
+
+def validateMessage(state: ContactState) -> ContactState:
+    session_id = state["session_id"]
+    raw_input = state.get("message", "").strip()
+
+    # ── Check 1: Empty ──
+    if not raw_input:
+        retry_count = state.get("retry_count", 0) + 1
+        logger.warning(f"session_id={session_id} field=message input=EMPTY retry={retry_count}")
+        return {
+            **state,
+            "is_valid": False,
+            "retry_count": retry_count,
+            "validation_error": "You didn't type anything. Please enter your message.",
+            "bot_message": "",
+            "system_error": {}
+        }
+
+    # ── Check 2: Too short ──
+    if len(raw_input) < 10:
+        retry_count = state.get("retry_count", 0) + 1
+        logger.warning(f"session_id={session_id} field=message input=TOO_SHORT retry={retry_count}")
+        return {
+            **state,
+            "is_valid": False,
+            "retry_count": retry_count,
+            "validation_error": f"Your message is too short ({len(raw_input)} characters). Please write at least 10 characters so we can understand your query.",
+            "bot_message": "",
+            "system_error": {}
+        }
+
+    # ── Check 3: Too long ──
+    if len(raw_input) > 1000:
+        retry_count = state.get("retry_count", 0) + 1
+        logger.warning(f"session_id={session_id} field=message input=TOO_LONG retry={retry_count}")
+        return {
+            **state,
+            "is_valid": False,
+            "retry_count": retry_count,
+            "validation_error": f"Your message is too long ({len(raw_input)} characters). Please keep it under 1000 characters.",
+            "bot_message": "",
+            "system_error": {}
+        }
+
+    # ── Success ──
+    logger.info(f"session_id={session_id} field=message status=SUCCESS length={len(raw_input)}")
+    return {
+        **state,
+        "message": raw_input,
+        "is_valid": True,
+        "retry_count": 0,
+        "validation_error": "",
+        "bot_message": "",
         "system_error": {}
     }
 
 
+
 # ─────────────────────────────────────────────
-# NODE 8 — saveToDB
+# NODE 9 — saveToDB
 # ─────────────────────────────────────────────
 def saveToDB(state: ContactState) -> ContactState:
     session_id = state["session_id"]
@@ -505,26 +659,20 @@ def saveToDB(state: ContactState) -> ContactState:
 # ─────────────────────────────────────────────
 # CONDITIONAL EDGE FUNCTIONS
 #
-# KEY ARCHITECTURE FIX:
-# On retry (is_valid=False), we route back to the validate node — NOT the ask node.
-# This means the error message from validateX is shown directly to the user
-# without being overwritten by askX generating a fresh greeting-style prompt.
-#
-# Graph flow on retry:
-#   validateName (error, is_valid=False) → [interrupt] → validateName (re-runs with new input)
-#
-# Graph flow on success:
-#   validateName (success, is_valid=True) → askEmail → [interrupt] → validateEmail
 # ─────────────────────────────────────────────
+# ── Conditional edge functions (updated to route failures back to ask nodes) ──
+
 def shouldContinueName(state: ContactState) -> str:
-    # Success → move to askEmail
-    # Failure → stay at validateName (graph will interrupt_before validateName again)
-    return "askEmail" if state["is_valid"] else "validateName"
+    return "askEmail" if state["is_valid"] else "askName"   # was "validateName"
 
 
 def shouldContinueEmail(state: ContactState) -> str:
-    return "askPhone" if state["is_valid"] else "validateEmail"
+    return "askPhone" if state["is_valid"] else "askEmail"  # was "validateEmail"
 
 
 def shouldContinuePhone(state: ContactState) -> str:
-    return "askMessage" if state["is_valid"] else "validatePhone"
+    return "askMessage" if state["is_valid"] else "askPhone" # was "validatePhone"
+
+# ── Conditional edge function ──
+def shouldContinueMessage(state: ContactState) -> str:
+    return "saveToDB" if state["is_valid"] else "askMessage"
