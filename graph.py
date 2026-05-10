@@ -9,8 +9,8 @@ from nodes import (
     askName, validateName,
     askEmail, validateEmail,
     askPhone, validatePhone,
-    askMessage, saveToDB,
-    shouldContinueName, shouldContinueEmail, shouldContinuePhone
+    askMessage, saveToDB, validateMessage,
+    shouldContinueName, shouldContinueEmail, shouldContinuePhone,shouldContinueMessage
 )
 
 workflow = StateGraph(ContactState)
@@ -23,6 +23,7 @@ workflow.add_node("validateEmail", validateEmail)
 workflow.add_node("askPhone", askPhone)
 workflow.add_node("validatePhone", validatePhone)
 workflow.add_node("askMessage", askMessage)
+workflow.add_node("validateMessage", validateMessage)   # ← new
 workflow.add_node("saveToDB", saveToDB)
 
 # ── Entry point ──
@@ -32,7 +33,7 @@ workflow.set_entry_point("askName")
 workflow.add_edge("askName", "validateName")
 workflow.add_edge("askEmail", "validateEmail")
 workflow.add_edge("askPhone", "validatePhone")
-workflow.add_edge("askMessage", "saveToDB")
+workflow.add_edge("askMessage", "validateMessage")      # ← was askMessage → saveToDB
 workflow.add_edge("saveToDB", END)
 
 # ── Conditional edges ──
@@ -44,12 +45,13 @@ workflow.add_edge("saveToDB", END)
 #
 # On success (is_valid=True), advance to the next ask node.
 #
+# Conditional edges now route failures BACK to ask nodes, not validate nodes
 workflow.add_conditional_edges(
     "validateName",
     shouldContinueName,
     {
-        "askEmail": "askEmail",       # success path
-        "validateName": "validateName"  # retry path — loops back, hits interrupt
+        "askEmail": "askEmail",   # success
+        "askName": "askName"      # failure — back to ask, which handles retry message
     }
 )
 
@@ -57,8 +59,8 @@ workflow.add_conditional_edges(
     "validateEmail",
     shouldContinueEmail,
     {
-        "askPhone": "askPhone",         # success path
-        "validateEmail": "validateEmail"  # retry path
+        "askPhone": "askPhone",
+        "askEmail": "askEmail"
     }
 )
 
@@ -66,10 +68,21 @@ workflow.add_conditional_edges(
     "validatePhone",
     shouldContinuePhone,
     {
-        "askMessage": "askMessage",       # success path
-        "validatePhone": "validatePhone"  # retry path
+        "askMessage": "askMessage",
+        "askPhone": "askPhone"
     }
 )
+
+# ── Conditional edge for message ──
+workflow.add_conditional_edges(
+    "validateMessage",
+    shouldContinueMessage,
+    {
+        "saveToDB": "saveToDB",     # success
+        "askMessage": "askMessage"  # failure
+    }
+)
+
 
 # ── Checkpointer (SQLite) ──
 conn = sqlite3.connect("checkpoints.db", check_same_thread=False)
@@ -84,11 +97,13 @@ checkpointer = SqliteSaver(conn)
 # askName/Email/Phone/Message do NOT need interrupts — they generate bot prompts
 # and flow straight through without needing user input first.
 #
+
+# graph.py — fix the interrupt_before list
 app = workflow.compile(
     checkpointer=checkpointer,
-    interrupt_before=["validateName", "validateEmail", "validatePhone", "saveToDB"]
+    interrupt_before=["validateName", "validateEmail", "validatePhone", "validateMessage"]
+    #                  removed "saveToDB" ↑, added "validateMessage" ↑
 )
-
 
 if __name__ == "__main__":
     png_image = app.get_graph().draw_mermaid_png()

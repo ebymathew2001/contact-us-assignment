@@ -41,11 +41,9 @@ def chat_start():
     if not session_id:
         return jsonify({"error": "session_id required"}), 400
 
-    # 1. Save session to DB
     save_session(session_id)
     logger.info(f"session_id={session_id} new session created")
 
-    # 2. Run graph from beginning — askName runs, pauses before validateName
     config = {"configurable": {"thread_id": session_id}}
     result = langgraph_app.invoke({
         "session_id": session_id,
@@ -56,6 +54,7 @@ def chat_start():
         "current_field": "name",
         "retry_count": 0,
         "is_valid": False,
+        "validation_error": "",   # ← ONLY CHANGE NEEDED
         "final_data": {},
         "bot_message": "",
         "is_complete": False,
