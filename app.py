@@ -155,19 +155,13 @@ def logs():
     return jsonify(result)
 
 
-@flask_app.route("/logs/<session_id>/conversation", methods=["GET"])
-def logs_conversation(session_id):
-    return jsonify(get_conversation(session_id))
-
-
-@flask_app.route("/logs/<session_id>/errors", methods=["GET"])
-def logs_errors(session_id):
-    return jsonify(get_errors(session_id))
-
-
-@flask_app.route("/logs/<session_id>/details", methods=["GET"])
-def logs_details(session_id):
-    return jsonify(get_details(session_id))
+@flask_app.route("/logs/<session_id>/data", methods=["GET"])
+def logs_session_data(session_id):
+    return jsonify({
+        "conversation": get_conversation(session_id),
+        "errors":       get_errors(session_id),
+        "details":      get_details(session_id)
+    })
 
 
 if __name__ == "__main__":
