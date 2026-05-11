@@ -36944,3 +36944,64 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
 2026-05-11 11:37:10,598 - INFO - session_id=76a10a8c-6b0e-4820-828c-5fca7318b436 field=message status=SUCCESS length=18
 2026-05-11 11:37:11,249 - INFO - session_id=76a10a8c-6b0e-4820-828c-5fca7318b436 form complete — Flask will save contact
 2026-05-11 11:37:11,264 - INFO - session_id=76a10a8c-6b0e-4820-828c-5fca7318b436 contact saved successfully
+2026-05-11 12:02:25,476 - INFO - session_id=0ef35467-4a9a-41ef-8380-e05e51558903 new session created
+2026-05-11 12:02:26,213 - ERROR - session_id=0ef35467-4a9a-41ef-8380-e05e51558903 askName LLM error: Error code: 400 - {'error': {'message': "tool call validation failed: parameters for tool BotResponse did not match schema: errors: [missing properties: 'field']", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=BotResponse> {"name": "name", "message": "Hello! Welcome to our contact form. What\'s your full name?", "status": "asking"} </function>'}}
+2026-05-11 12:02:26,213 - INFO - session_id=0ef35467-4a9a-41ef-8380-e05e51558903 askName retry=0
+2026-05-11 12:02:32,763 - INFO - session_id=0ef35467-4a9a-41ef-8380-e05e51558903 current_field=name user_input='my name is eby mathew'
+2026-05-11 12:02:33,297 - INFO - RAW NAME: my name is eby mathew | CLEAN NAME: eby mathew
+2026-05-11 12:02:33,482 - INFO - session_id=0ef35467-4a9a-41ef-8380-e05e51558903 field=name input=eby mathew status=SUCCESS
+2026-05-11 12:02:33,685 - INFO - session_id=0ef35467-4a9a-41ef-8380-e05e51558903 askEmail retry=0
+2026-05-11 12:02:41,142 - INFO - session_id=0ef35467-4a9a-41ef-8380-e05e51558903 current_field=email user_input='eby@gmail.com'
+2026-05-11 12:02:41,467 - INFO - RAW EMAIL: eby@gmail.com | CLEAN EMAIL: eby@gmail.com
+2026-05-11 12:02:41,672 - INFO - session_id=0ef35467-4a9a-41ef-8380-e05e51558903 field=email input=eby@gmail.com status=SUCCESS
+2026-05-11 12:02:41,950 - INFO - session_id=0ef35467-4a9a-41ef-8380-e05e51558903 askPhone retry=0
+2026-05-11 12:02:47,673 - INFO - session_id=0ef35467-4a9a-41ef-8380-e05e51558903 current_field=phone user_input='7898543489'
+2026-05-11 12:02:47,921 - INFO - RAW PHONE: 7898543489 | CLEAN PHONE: 7898543489
+2026-05-11 12:02:48,140 - INFO - session_id=0ef35467-4a9a-41ef-8380-e05e51558903 field=phone input=7898543489 status=SUCCESS
+2026-05-11 12:02:48,393 - ERROR - session_id=0ef35467-4a9a-41ef-8380-e05e51558903 askMessage LLM error: Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=BotResponse> {"name": "BotResponse", "field": "message", "status": "asking"}'}}
+2026-05-11 12:02:48,393 - INFO - session_id=0ef35467-4a9a-41ef-8380-e05e51558903 askMessage retry=0
+2026-05-11 12:02:54,681 - INFO - session_id=0ef35467-4a9a-41ef-8380-e05e51558903 current_field=message user_input='my name is eby'
+2026-05-11 12:02:54,689 - INFO - session_id=0ef35467-4a9a-41ef-8380-e05e51558903 field=message status=SUCCESS length=14
+2026-05-11 12:02:54,968 - INFO - session_id=0ef35467-4a9a-41ef-8380-e05e51558903 form complete — Flask will save contact
+2026-05-11 12:02:54,986 - INFO - session_id=0ef35467-4a9a-41ef-8380-e05e51558903 contact saved successfully
+2026-05-11 17:40:17,583 - INFO - session_id=136412e2-6aa4-4d5f-ab14-677a434ef16d new session created
+2026-05-11 17:40:18,071 - ERROR - session_id=136412e2-6aa4-4d5f-ab14-677a434ef16d askName LLM error: Error code: 400 - {'error': {'message': "tool call validation failed: parameters for tool BotResponse did not match schema: errors: [missing properties: 'field']", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=BotResponse> {"name": "name", "message": "Hello! What\'s your full name?", "status": "asking"} </function>'}}
+2026-05-11 17:40:18,071 - INFO - session_id=136412e2-6aa4-4d5f-ab14-677a434ef16d askName retry=0
+2026-05-11 17:40:24,074 - INFO - session_id=136412e2-6aa4-4d5f-ab14-677a434ef16d current_field=name user_input='my name is eby mathew'
+2026-05-11 17:40:24,529 - INFO - RAW NAME: my name is eby mathew | CLEAN NAME: eby mathew
+2026-05-11 17:40:24,886 - INFO - session_id=136412e2-6aa4-4d5f-ab14-677a434ef16d field=name input=eby mathew status=SUCCESS
+2026-05-11 17:40:25,186 - INFO - session_id=136412e2-6aa4-4d5f-ab14-677a434ef16d askEmail retry=0
+2026-05-11 17:40:31,691 - INFO - session_id=136412e2-6aa4-4d5f-ab14-677a434ef16d current_field=email user_input='eby@gmail.com'
+2026-05-11 17:40:32,152 - INFO - RAW EMAIL: eby@gmail.com | CLEAN EMAIL: eby@gmail.com
+2026-05-11 17:40:32,362 - INFO - session_id=136412e2-6aa4-4d5f-ab14-677a434ef16d field=email input=eby@gmail.com status=SUCCESS
+2026-05-11 17:40:32,640 - INFO - session_id=136412e2-6aa4-4d5f-ab14-677a434ef16d askPhone retry=0
+2026-05-11 17:41:41,434 - INFO - session_id=136412e2-6aa4-4d5f-ab14-677a434ef16d current_field=phone user_input='9876542345'
+2026-05-11 17:41:41,825 - ERROR - session_id=136412e2-6aa4-4d5f-ab14-677a434ef16d node=validatePhone error=Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=ExtractedPhone>phone=9876542345</function>'}}
+2026-05-11 17:41:42,138 - ERROR - session_id=136412e2-6aa4-4d5f-ab14-677a434ef16d askPhone LLM error: Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=BotResponse> {"field": "phone", "message": "Something went wrong while checking your phone number. Please enter a valid 10-digit phone number and try again.", "status": "asking"}'}}
+2026-05-11 17:41:42,138 - INFO - session_id=136412e2-6aa4-4d5f-ab14-677a434ef16d askPhone retry=1
+2026-05-11 17:42:03,654 - INFO - session_id=136412e2-6aa4-4d5f-ab14-677a434ef16d current_field=phone user_input='9876542345'
+2026-05-11 17:42:03,898 - INFO - RAW PHONE: 9876542345 | CLEAN PHONE: 9876542345
+2026-05-11 17:42:04,098 - INFO - session_id=136412e2-6aa4-4d5f-ab14-677a434ef16d field=phone input=9876542345 status=SUCCESS
+2026-05-11 17:42:04,279 - INFO - session_id=136412e2-6aa4-4d5f-ab14-677a434ef16d askMessage retry=0
+2026-05-11 17:45:28,534 - INFO - session_id=b50104a5-271f-4d8f-9e23-fe204219ed94 new session created
+2026-05-11 17:45:29,255 - ERROR - session_id=b50104a5-271f-4d8f-9e23-fe204219ed94 askName LLM error: Error code: 400 - {'error': {'message': "tool call validation failed: parameters for tool BotResponse did not match schema: errors: [missing properties: 'field']", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=BotResponse> {"name": "name", "message": "Hello! Welcome to our contact form. How may we assist you today? Please share your full name:", "status": "asking"} </function>'}}
+2026-05-11 17:45:29,255 - INFO - session_id=b50104a5-271f-4d8f-9e23-fe204219ed94 askName retry=0
+2026-05-11 17:45:42,190 - INFO - session_id=b50104a5-271f-4d8f-9e23-fe204219ed94 current_field=name user_input='my name is eby mathew'
+2026-05-11 17:45:42,769 - ERROR - session_id=b50104a5-271f-4d8f-9e23-fe204219ed94 node=validateName error=Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=ExtractedName>name: my name is eby mathew</function>'}}
+2026-05-11 17:45:43,049 - INFO - session_id=b50104a5-271f-4d8f-9e23-fe204219ed94 askName retry=1
+2026-05-11 17:45:51,516 - INFO - session_id=b50104a5-271f-4d8f-9e23-fe204219ed94 current_field=name user_input='my name is eby mathew'
+2026-05-11 17:45:51,892 - INFO - RAW NAME: my name is eby mathew | CLEAN NAME: eby mathew
+2026-05-11 17:45:52,193 - INFO - session_id=b50104a5-271f-4d8f-9e23-fe204219ed94 field=name input=eby mathew status=SUCCESS
+2026-05-11 17:45:52,508 - INFO - session_id=b50104a5-271f-4d8f-9e23-fe204219ed94 askEmail retry=0
+2026-05-11 17:45:57,131 - INFO - session_id=2adf8864-6a38-4f93-90e1-59e97bc6e96e new session created
+2026-05-11 17:45:57,413 - ERROR - session_id=2adf8864-6a38-4f93-90e1-59e97bc6e96e askName LLM error: Error code: 400 - {'error': {'message': "tool call validation failed: parameters for tool BotResponse did not match schema: errors: [missing properties: 'field']", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=BotResponse> {"name": "name", "message": "Hi there! What\'s your full name?", "status": "asking"} </function>'}}
+2026-05-11 17:45:57,413 - INFO - session_id=2adf8864-6a38-4f93-90e1-59e97bc6e96e askName retry=0
+2026-05-11 17:46:01,727 - INFO - session_id=2adf8864-6a38-4f93-90e1-59e97bc6e96e current_field=name user_input='my name is eby mathew'
+2026-05-11 17:46:01,930 - INFO - RAW NAME: my name is eby mathew | CLEAN NAME: eby mathew
+2026-05-11 17:46:02,233 - INFO - session_id=2adf8864-6a38-4f93-90e1-59e97bc6e96e field=name input=eby mathew status=SUCCESS
+2026-05-11 17:46:02,534 - ERROR - session_id=2adf8864-6a38-4f93-90e1-59e97bc6e96e askEmail LLM error: Error code: 400 - {'error': {'message': "tool call validation failed: parameters for tool BotResponse did not match schema: errors: [missing properties: 'message']", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=BotResponse> {"name": "eby mathew", "field": "email", "status": "asking"} </function>'}}
+2026-05-11 17:46:02,535 - INFO - session_id=2adf8864-6a38-4f93-90e1-59e97bc6e96e askEmail retry=0
+2026-05-11 17:46:10,170 - INFO - session_id=2adf8864-6a38-4f93-90e1-59e97bc6e96e current_field=email user_input='eby@gmail.com'
+2026-05-11 17:46:11,036 - INFO - RAW EMAIL: eby@gmail.com | CLEAN EMAIL: eby@gmail.com
+2026-05-11 17:46:11,242 - INFO - session_id=2adf8864-6a38-4f93-90e1-59e97bc6e96e field=email input=eby@gmail.com status=SUCCESS
+2026-05-11 17:46:11,445 - INFO - session_id=2adf8864-6a38-4f93-90e1-59e97bc6e96e askPhone retry=0
