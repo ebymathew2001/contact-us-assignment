@@ -9,6 +9,7 @@ from database import (
     get_sessions, get_conversation, get_errors, get_details
 )
 from logger import logger
+import uuid
 
 flask_app = Flask(__name__)
 
@@ -35,8 +36,7 @@ def logs_page():
 # ─────────────────────────────────────────────
 @flask_app.route("/chat/start", methods=["POST"])
 def chat_start():
-    data = request.get_json()
-    session_id = data.get("session_id")
+    session_id = str(uuid.uuid4())
 
     if not session_id:
         return jsonify({"error": "session_id required"}), 400
