@@ -264,6 +264,15 @@ __pycache__/
 
 ---
 
+
+## Screenshots
+
+### Chat Widget
+![Chat Widget](docs/images/chat.png)
+
+### Logs Dashboard
+![Logs Dashboard](docs/images/logs.png)
+
 ## License
 
 This project is for educational purposes.
