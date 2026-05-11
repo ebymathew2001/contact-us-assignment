@@ -36922,3 +36922,25 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
 2026-05-11 10:56:36,109 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
 2026-05-11 10:56:36,109 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-11 11:11:59,174 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-11 11:11:59,174 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-11 11:36:43,720 - INFO - session_id=76a10a8c-6b0e-4820-828c-5fca7318b436 new session created
+2026-05-11 11:36:44,359 - INFO - session_id=76a10a8c-6b0e-4820-828c-5fca7318b436 askName retry=0
+2026-05-11 11:36:52,669 - INFO - session_id=76a10a8c-6b0e-4820-828c-5fca7318b436 current_field=name user_input='my name is eby mathew'
+2026-05-11 11:36:53,039 - INFO - RAW NAME: my name is eby mathew | CLEAN NAME: eby mathew
+2026-05-11 11:36:53,380 - INFO - session_id=76a10a8c-6b0e-4820-828c-5fca7318b436 field=name input=eby mathew status=SUCCESS
+2026-05-11 11:36:53,652 - ERROR - session_id=76a10a8c-6b0e-4820-828c-5fca7318b436 askEmail LLM error: Error code: 400 - {'error': {'message': "tool call validation failed: parameters for tool BotResponse did not match schema: errors: [missing properties: 'message']", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=BotResponse> {"name": "Eby Mathew", "field": "email", "status": "asking"} </function>'}}
+2026-05-11 11:36:53,652 - INFO - session_id=76a10a8c-6b0e-4820-828c-5fca7318b436 askEmail retry=0
+2026-05-11 11:36:58,119 - INFO - session_id=76a10a8c-6b0e-4820-828c-5fca7318b436 current_field=email user_input='eby@gmail.com'
+2026-05-11 11:36:58,302 - INFO - RAW EMAIL: eby@gmail.com | CLEAN EMAIL: eby@gmail.com
+2026-05-11 11:36:58,506 - INFO - session_id=76a10a8c-6b0e-4820-828c-5fca7318b436 field=email input=eby@gmail.com status=SUCCESS
+2026-05-11 11:36:58,817 - INFO - session_id=76a10a8c-6b0e-4820-828c-5fca7318b436 askPhone retry=0
+2026-05-11 11:37:04,251 - INFO - session_id=76a10a8c-6b0e-4820-828c-5fca7318b436 current_field=phone user_input='8976432345'
+2026-05-11 11:37:04,518 - INFO - RAW PHONE: 8976432345 | CLEAN PHONE: 8976432345
+2026-05-11 11:37:04,704 - INFO - session_id=76a10a8c-6b0e-4820-828c-5fca7318b436 field=phone input=8976432345 status=SUCCESS
+2026-05-11 11:37:04,943 - INFO - session_id=76a10a8c-6b0e-4820-828c-5fca7318b436 askMessage retry=0
+2026-05-11 11:37:10,590 - INFO - session_id=76a10a8c-6b0e-4820-828c-5fca7318b436 current_field=message user_input='hlo my name is eby'
+2026-05-11 11:37:10,598 - INFO - session_id=76a10a8c-6b0e-4820-828c-5fca7318b436 field=message status=SUCCESS length=18
+2026-05-11 11:37:11,249 - INFO - session_id=76a10a8c-6b0e-4820-828c-5fca7318b436 form complete — Flask will save contact
+2026-05-11 11:37:11,264 - INFO - session_id=76a10a8c-6b0e-4820-828c-5fca7318b436 contact saved successfully

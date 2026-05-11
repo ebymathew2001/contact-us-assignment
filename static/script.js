@@ -17,11 +17,11 @@ if (chatWidget) {
   let chatStarted = false;
   let isComplete = false;
 
- openChatBtn.addEventListener('click', async () => {
+  openChatBtn.addEventListener('click', async () => {
     chatWidget.classList.add('open');
     chatStarted = true;
     isComplete = false;
-    sessionId = null;   
+    sessionId = null;
     chatMessages.innerHTML = '';
     setInputEnabled(true);
     chatInput.placeholder = 'Type your message...';
@@ -41,23 +41,21 @@ if (chatWidget) {
 
   sendBtn.addEventListener('click', sendMessage);
 
- async function startChat() {
+  async function startChat() {
     showTyping();
     try {
-        const res = await fetch('/chat/start', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({})  // ← send empty body, no session_id
-        });
-        const data = await res.json();
-        removeTyping();
-        
-        sessionId = data.session_id;  // ← receive session_id from backend
-        
-        appendMessage('bot', data.response);
+      const res = await fetch('/chat/start', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({})
+      });
+      const data = await res.json();
+      removeTyping();
+      sessionId = data.session_id;
+      appendMessage('bot', data.response);
     } catch (err) {
-        removeTyping();
-        appendMessage('bot', 'Sorry, could not connect. Please refresh and try again.');
+      removeTyping();
+      appendMessage('bot', 'Sorry, could not connect. Please refresh and try again.');
     }
   }
 
@@ -132,6 +130,7 @@ if (sessionsTbody) {
   let currentPage = 1;
   let totalPages = 1;
   let currentSessionId = null;
+  let sessionCache = null;   // ← stores the single fetch result
 
   loadSessions(1);
 
@@ -176,12 +175,24 @@ if (sessionsTbody) {
 
   window.openPopup = async function(sessionId) {
     currentSessionId = sessionId;
+    sessionCache = null;   // ← clear cache for new session
+
     document.getElementById('popup-session-label').textContent = `Session: ${sessionId.slice(0, 18)}...`;
     document.getElementById('popup-overlay').classList.add('active');
+
     // Reset to first tab
     document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
     document.querySelectorAll('.tab-content').forEach((t, i) => t.classList.toggle('active', i === 0));
-    await loadConversation(sessionId);
+
+    // One fetch for all three tabs
+    try {
+      const res = await fetch(`/logs/${sessionId}/data`);
+      sessionCache = await res.json();
+    } catch (err) {
+      sessionCache = { conversation: null, errors: null, details: null };
+    }
+
+    renderConversation(sessionCache.conversation);
   };
 
   window.closePopup = function() {
@@ -192,88 +203,68 @@ if (sessionsTbody) {
     if (e.target === this) closePopup();
   });
 
-  window.switchTab = async function(tabName, btn) {
+  // Tab switching renders from cache — no extra fetches
+  window.switchTab = function(tabName, btn) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
     document.getElementById(`tab-${tabName}`).classList.add('active');
-    if (!currentSessionId) return;
-    if (tabName === 'conversation') await loadConversation(currentSessionId);
-    if (tabName === 'errors') await loadErrors(currentSessionId);
-    if (tabName === 'details') await loadDetails(currentSessionId);
+
+    if (tabName === 'conversation') renderConversation(sessionCache?.conversation);
+    if (tabName === 'errors')       renderErrors(sessionCache?.errors);
+    if (tabName === 'details')      renderDetails(sessionCache?.details);
   };
 
-  async function loadConversation(sessionId) {
+  function renderConversation(messages) {
     const el = document.getElementById('convo-body');
-    el.innerHTML = 'Loading...';
-    try {
-      const res = await fetch(`/logs/${sessionId}/conversation`);
-      const messages = await res.json();
-      if (!messages || messages.length === 0) {
-        el.innerHTML = '<p class="empty-msg">No messages found.</p>';
-        return;
-      }
-      el.innerHTML = messages.map(m => `
-        <div class="convo-message">
-          <div class="convo-sender ${m.sender}">${m.sender.toUpperCase()}</div>
-          <div>${m.message}</div>
-        </div>
-      `).join('');
-    } catch (err) {
-      el.innerHTML = '<p class="empty-msg">Failed to load conversation.</p>';
+    if (!messages || messages.length === 0) {
+      el.innerHTML = '<p class="empty-msg">No messages found.</p>';
+      return;
     }
+    el.innerHTML = messages.map(m => `
+      <div class="convo-message">
+        <div class="convo-sender ${m.sender}">${m.sender.toUpperCase()}</div>
+        <div>${m.message}</div>
+      </div>
+    `).join('');
   }
 
-  async function loadErrors(sessionId) {
+  function renderErrors(errors) {
     const el = document.getElementById('errors-body');
-    el.innerHTML = 'Loading...';
-    try {
-      const res = await fetch(`/logs/${sessionId}/errors`);
-      const errors = await res.json();
-      if (!errors || errors.length === 0) {
-        el.innerHTML = '<p class="empty-msg">No errors found for this session.</p>';
-        return;
-      }
-      el.innerHTML = `
-        <table class="error-table">
-          <thead><tr><th>Time</th><th>Node</th><th>Error Type</th><th>Message</th></tr></thead>
-          <tbody>
-            ${errors.map(e => `
-              <tr>
-                <td>${new Date(e.timestamp).toLocaleTimeString()}</td>
-                <td>${e.node}</td>
-                <td>${e.error_type}</td>
-                <td>${e.message}</td>
-              </tr>
-            `).join('')}
-          </tbody>
-        </table>
-      `;
-    } catch (err) {
-      el.innerHTML = '<p class="empty-msg">Failed to load errors.</p>';
+    if (!errors || errors.length === 0) {
+      el.innerHTML = '<p class="empty-msg">No errors found for this session.</p>';
+      return;
     }
+    el.innerHTML = `
+      <table class="error-table">
+        <thead><tr><th>Time</th><th>Node</th><th>Error Type</th><th>Message</th></tr></thead>
+        <tbody>
+          ${errors.map(e => `
+            <tr>
+              <td>${new Date(e.timestamp).toLocaleTimeString()}</td>
+              <td>${e.node}</td>
+              <td>${e.error_type}</td>
+              <td>${e.message}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    `;
   }
 
-  async function loadDetails(sessionId) {
+  function renderDetails(data) {
     const el = document.getElementById('details-body');
-    el.innerHTML = 'Loading...';
-    try {
-      const res = await fetch(`/logs/${sessionId}/details`);
-      const data = await res.json();
-      if (!data) {
-        el.innerHTML = '<p class="empty-msg">Form was not fully submitted.</p>';
-        return;
-      }
-      el.innerHTML = `
-        <div class="details-grid">
-          <div class="detail-row"><span class="detail-label">Name</span><span class="detail-value">${data.name}</span></div>
-          <div class="detail-row"><span class="detail-label">Email</span><span class="detail-value">${data.email}</span></div>
-          <div class="detail-row"><span class="detail-label">Phone</span><span class="detail-value">${data.phone}</span></div>
-          <div class="detail-row"><span class="detail-label">Message</span><span class="detail-value">${data.message}</span></div>
-        </div>
-      `;
-    } catch (err) {
-      el.innerHTML = '<p class="empty-msg">Failed to load details.</p>';
+    if (!data) {
+      el.innerHTML = '<p class="empty-msg">Form was not fully submitted.</p>';
+      return;
     }
+    el.innerHTML = `
+      <div class="details-grid">
+        <div class="detail-row"><span class="detail-label">Name</span><span class="detail-value">${data.name}</span></div>
+        <div class="detail-row"><span class="detail-label">Email</span><span class="detail-value">${data.email}</span></div>
+        <div class="detail-row"><span class="detail-label">Phone</span><span class="detail-value">${data.phone}</span></div>
+        <div class="detail-row"><span class="detail-label">Message</span><span class="detail-value">${data.message}</span></div>
+      </div>
+    `;
   }
 }

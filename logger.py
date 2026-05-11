@@ -1,10 +1,13 @@
 # logger.py
 import logging
 
-logging.basicConfig(
-    filename="contact_logs.log",
-    level=logging.DEBUG,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
+logger = logging.getLogger("contactbot")
+logger.setLevel(logging.DEBUG)
+logger.propagate = False  # don't pass to root logger (avoids duplicate console output)
 
-logger = logging.getLogger(__name__)
+if not logger.handlers:
+    handler = logging.FileHandler("contact_logs.log")
+    handler.setLevel(logging.DEBUG)
+    formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
