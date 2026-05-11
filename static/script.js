@@ -1,11 +1,5 @@
 // static/script.js
 
-function generateUUID() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    const r = Math.random() * 16 | 0;
-    return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-  });
-}
 
 
 // ════════════════════════════════════════════
@@ -27,7 +21,7 @@ if (chatWidget) {
     chatWidget.classList.add('open');
     chatStarted = true;
     isComplete = false;
-    sessionId = generateUUID();
+    sessionId = null;   
     chatMessages.innerHTML = '';
     setInputEnabled(true);
     chatInput.placeholder = 'Type your message...';
@@ -47,20 +41,23 @@ if (chatWidget) {
 
   sendBtn.addEventListener('click', sendMessage);
 
-  async function startChat() {
+ async function startChat() {
     showTyping();
     try {
-      const res = await fetch('/chat/start', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ session_id: sessionId })
-      });
-      const data = await res.json();
-      removeTyping();
-      appendMessage('bot', data.response);
+        const res = await fetch('/chat/start', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({})  // ← send empty body, no session_id
+        });
+        const data = await res.json();
+        removeTyping();
+        
+        sessionId = data.session_id;  // ← receive session_id from backend
+        
+        appendMessage('bot', data.response);
     } catch (err) {
-      removeTyping();
-      appendMessage('bot', 'Sorry, could not connect. Please refresh and try again.');
+        removeTyping();
+        appendMessage('bot', 'Sorry, could not connect. Please refresh and try again.');
     }
   }
 
