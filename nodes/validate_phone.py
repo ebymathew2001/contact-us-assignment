@@ -43,9 +43,12 @@ def validatePhone(state: ContactState) -> ContactState:
                 "system_error": {}
             }
 
-        llm_with_tools = llm.bind_tools([validate_name_tool, validate_email_tool, validate_phone_tool])
+        llm_with_tools = llm.bind_tools(
+        [validate_phone_tool],
+        tool_choice={"type": "function", "function": {"name": "validate_phone_tool"}}
+        )
         tool_response = llm_with_tools.invoke(
-            f"Validate this phone number: '{clean_phone}'. Use the validate_phone_tool."
+            f"Validate this phone number: '{clean_phone}'."
         )
 
         validation_result = None
