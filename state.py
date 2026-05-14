@@ -12,6 +12,7 @@ class ContactState(TypedDict):
     current_field: str    # 'name', 'email', 'phone', 'message'
     retry_count: int      # how many times user retried current field
     is_valid: bool        # True if last validation passed
+    validation_error: str   # ← NEW: error message from last failed validation
     final_data: dict      # complete form data after saveToDB
     bot_message: str      # current bot message to return to browser
     is_complete: bool     # set True by saveToDB — signals Flask to save contact + disable input
@@ -30,3 +31,13 @@ class ErrorResponse(BaseModel):
     field: str          # which field failed
     error_type: str     # what was wrong — logged via logger.warning()
     retry_count: int    # how many times user has tried
+
+
+class ExtractedName(BaseModel):
+    name: str
+
+class ExtractedEmail(BaseModel):
+    email: str
+
+class ExtractedPhone(BaseModel):
+    phone: str

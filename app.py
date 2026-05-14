@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 
-load_dotenv() 
+load_dotenv()
 from flask import Flask, request, jsonify, render_template
 from graph import app as langgraph_app
 from database import (
@@ -9,9 +9,9 @@ from database import (
     get_sessions, get_conversation, get_errors, get_details
 )
 from logger import logger
+import uuid
 
 flask_app = Flask(__name__)
-
 
 # Create all tables on startup
 create_tables()
@@ -36,17 +36,14 @@ def logs_page():
 # ─────────────────────────────────────────────
 @flask_app.route("/chat/start", methods=["POST"])
 def chat_start():
-    data = request.get_json()
-    session_id = data.get("session_id")
+    session_id = str(uuid.uuid4())
 
     if not session_id:
         return jsonify({"error": "session_id required"}), 400
 
-    # 1. Save session to DB immediately
     save_session(session_id)
     logger.info(f"session_id={session_id} new session created")
 
-    # 2. Run graph from beginning — askName runs, pauses before validateName
     config = {"configurable": {"thread_id": session_id}}
     result = langgraph_app.invoke({
         "session_id": session_id,
@@ -57,6 +54,7 @@ def chat_start():
         "current_field": "name",
         "retry_count": 0,
         "is_valid": False,
+        "validation_error": "",   # ← ONLY CHANGE NEEDED
         "final_data": {},
         "bot_message": "",
         "is_complete": False,
@@ -64,8 +62,6 @@ def chat_start():
     }, config=config)
 
     bot_reply = result.get("bot_message", "Hi! What is your name?")
-
-    # 3. Save bot greeting to chats table
     save_chat(session_id, "bot", bot_reply)
 
     return jsonify({
@@ -77,45 +73,50 @@ def chat_start():
 # ─────────────────────────────────────────────
 # POST /chat
 # Called by browser on every user message
-# Flask saves ALL DB records here after invoke()
 # ─────────────────────────────────────────────
 @flask_app.route("/chat", methods=["POST"])
 def chat():
     data = request.get_json()
     session_id = data.get("session_id")
-    user_message = data.get("message", "")
+    user_message = data.get("message", "").strip()
 
     if not session_id:
         return jsonify({"error": "session_id required"}), 400
 
     config = {"configurable": {"thread_id": session_id}}
 
-    # 1. Save user message to chats BEFORE invoking graph
+    # 1. Save user message to chats
     save_chat(session_id, "user", user_message)
 
-    # 2. Get current state from checkpoint to know which field we are collecting
+    # 2. Get current state to know which field we are collecting
     current_state = langgraph_app.get_state(config)
     current_values = current_state.values if current_state else {}
     current_field = current_values.get("current_field", "name")
 
-    # 3. ✅ CORRECT LANGGRAPH RESUME PATTERN
-    #    Step 1 — update the state with user input in the right field
-    #    Step 2 — resume graph from pause point by passing None
+    logger.info(f"session_id={session_id} current_field={current_field} user_input='{user_message}'")
+
+    # 3. Update state with user input in the correct field, then resume
     #
-    #    OLD (wrong): langgraph_app.invoke({current_field: user_message}, config=config)
-    #    This could restart the graph from the beginning instead of resuming.
+    # IMPORTANT: On retry, current_field is still the same (e.g. "email") because
+    # the validate node sets it and the ask node never ran again.
+    # So update_state({current_field: user_message}) correctly overwrites
+    # the previous bad input with the new attempt.
     #
-    #    NEW (correct): update_state first, then invoke(None)
-    #    invoke(None) means "resume from where you paused, don't restart"
-    langgraph_app.update_state(config, {current_field: user_message})
+    # We also reset is_valid to False before resuming so the validate node
+    # starts fresh (defensive — validate always sets it explicitly anyway).
+    #
+    langgraph_app.update_state(config, {
+        current_field: user_message,
+        "is_valid": False  # defensive reset before validation runs
+    })
     result = langgraph_app.invoke(None, config=config)
 
     bot_reply = result.get("bot_message", "")
 
-    # 4. Save bot reply to chats
+    # 4. Save bot reply
     save_chat(session_id, "bot", bot_reply)
 
-    # 5. If a system crash happened inside a node, save it to errors table
+    # 5. Save system errors if any
     system_error = result.get("system_error", {})
     if system_error:
         save_error(
@@ -125,7 +126,7 @@ def chat():
             message=system_error.get("message", "")
         )
 
-    # 6. If form is complete, save contact data and update session status
+    # 6. If form complete, save contact data
     if result.get("is_complete"):
         save_contact(
             session_id=session_id,
@@ -135,13 +136,6 @@ def chat():
             message=result.get("message", "")
         )
         logger.info(f"session_id={session_id} contact saved successfully")
-
-    return jsonify({
-        "response": bot_reply,
-        "session_id": session_id,
-        "is_complete": result.get("is_complete", False)
-    })
-    logger.info(f"session_id={session_id} contact saved successfully")
 
     return jsonify({
         "response": bot_reply,
@@ -161,28 +155,13 @@ def logs():
     return jsonify(result)
 
 
-# ─────────────────────────────────────────────
-# GET /logs/<session_id>/conversation
-# ─────────────────────────────────────────────
-@flask_app.route("/logs/<session_id>/conversation", methods=["GET"])
-def logs_conversation(session_id):
-    return jsonify(get_conversation(session_id))
-
-
-# ─────────────────────────────────────────────
-# GET /logs/<session_id>/errors
-# ─────────────────────────────────────────────
-@flask_app.route("/logs/<session_id>/errors", methods=["GET"])
-def logs_errors(session_id):
-    return jsonify(get_errors(session_id))
-
-
-# ─────────────────────────────────────────────
-# GET /logs/<session_id>/details
-# ─────────────────────────────────────────────
-@flask_app.route("/logs/<session_id>/details", methods=["GET"])
-def logs_details(session_id):
-    return jsonify(get_details(session_id))
+@flask_app.route("/logs/<session_id>/data", methods=["GET"])
+def logs_session_data(session_id):
+    return jsonify({
+        "conversation": get_conversation(session_id),
+        "errors":       get_errors(session_id),
+        "details":      get_details(session_id)
+    })
 
 
 if __name__ == "__main__":
