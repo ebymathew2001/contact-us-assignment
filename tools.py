@@ -47,14 +47,7 @@ def validate_name_tool(name: str) -> dict:
             "message": f"Each part of your name must be at least 2 characters. Please enter your full name."
         }
 
-    # ── NEW: must have at least 2 words (first + last name) ──
-    if len(words) < 2:
-        return {
-            "valid": False,
-            "error_type": "single_word_name",
-            "message": "Please enter both your first and last name."
-        }
-
+   
     return {"valid": True, "error_type": None, "message": "Name is valid."}
 
 
@@ -96,7 +89,7 @@ def validate_email_tool(email: str) -> dict:
 
 @tool
 def validate_phone_tool(phone: str) -> dict:
-    """Validate the user's phone number. Must be exactly 10 digits."""
+    """Validate Indian mobile number. Must be 10 digits starting with 6-9."""
     phone = phone.strip()
 
     if not phone:
@@ -112,11 +105,11 @@ def validate_phone_tool(phone: str) -> dict:
             "message": f"You entered {len(phone)} digits, but a phone number must be exactly 10 digits. Please check and try again.",
         }
 
-    if phone[0] == '0':
+    if phone[0] not in "6789":
         return {
             "valid": False,
-            "error_type": "starts_with_zero",
-            "message": f"'{phone}' starts with 0, which is not valid. Please enter a 10-digit number starting with a non-zero digit.",
+            "error_type": "invalid_start_digit",
+            "message": f"'{phone}' is not a valid Indian mobile number. It must start with 6, 7, 8, or 9.",
         }
 
     if len(set(phone)) == 1:
@@ -124,13 +117,6 @@ def validate_phone_tool(phone: str) -> dict:
             "valid": False,
             "error_type": "repeated_digits",
             "message": f"'{phone}' looks like a repeated digit number, which is not valid. Please enter your actual phone number.",
-        }
-
-    if phone in ['1234567890', '0987654321', '9876543210', '1111111111']:
-        return {
-            "valid": False,
-            "error_type": "sequential_number",
-            "message": f"'{phone}' looks like a test or sequential number. Please enter your actual phone number.",
         }
 
     return {"valid": True, "error_type": None, "message": "Phone number is valid."}

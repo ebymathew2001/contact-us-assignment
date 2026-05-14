@@ -9,7 +9,7 @@ from nodes import (
     askName, validateName,
     askEmail, validateEmail,
     askPhone, validatePhone,
-    askMessage, saveToDB, validateMessage,
+    askMessage, completeForm, validateMessage,
     shouldContinueName, shouldContinueEmail, shouldContinuePhone,shouldContinueMessage
 )
 
@@ -24,7 +24,7 @@ workflow.add_node("askPhone", askPhone)
 workflow.add_node("validatePhone", validatePhone)
 workflow.add_node("askMessage", askMessage)
 workflow.add_node("validateMessage", validateMessage)   # ← new
-workflow.add_node("saveToDB", saveToDB)
+workflow.add_node("completeForm", completeForm)
 
 # ── Entry point ──
 workflow.set_entry_point("askName")
@@ -34,7 +34,7 @@ workflow.add_edge("askName", "validateName")
 workflow.add_edge("askEmail", "validateEmail")
 workflow.add_edge("askPhone", "validatePhone")
 workflow.add_edge("askMessage", "validateMessage")      # ← was askMessage → saveToDB
-workflow.add_edge("saveToDB", END)
+workflow.add_edge("completeForm", END)
 
 # ── Conditional edges ──
 #
@@ -78,7 +78,7 @@ workflow.add_conditional_edges(
     "validateMessage",
     shouldContinueMessage,
     {
-        "saveToDB": "saveToDB",     # success
+       "completeForm": "completeForm",     # success
         "askMessage": "askMessage"  # failure
     }
 )
@@ -109,4 +109,4 @@ if __name__ == "__main__":
     png_image = app.get_graph().draw_mermaid_png()
     with open("contact_form_graph.png", "wb") as f:
         f.write(png_image)
-    print("Graph generated successfully!")
+    print("Graph generated successfully!") 

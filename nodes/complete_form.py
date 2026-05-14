@@ -3,7 +3,7 @@ from state import ContactState, BotResponse
 from logger import logger
 
 
-def saveToDB(state: ContactState) -> ContactState:
+def completeForm(state: ContactState) -> ContactState:
     session_id = state["session_id"]
 
     try:
@@ -36,13 +36,13 @@ def saveToDB(state: ContactState) -> ContactState:
 
     except Exception as e:
         error_msg = str(e)
-        logger.error(f"session_id={session_id} node=saveToDB error={error_msg}")
+        logger.error(f"session_id={session_id} node=completeForm error={error_msg}")
         return {
             **state,
             "bot_message": "Sorry, we had an issue finalising your details. Please try again.",
             "is_complete": False,
             "system_error": {
-                "node": "saveToDB",
+                "node": "completeForm",
                 "error_type": "llm_error",
                 "message": error_msg
             }

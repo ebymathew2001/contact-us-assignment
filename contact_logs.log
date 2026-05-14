@@ -37031,3 +37031,32 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
 2026-05-14 09:58:04,047 - INFO - session_id=5277f4a9-5fbd-4d37-9079-10a6d3e4cfc0 field=message status=SUCCESS length=18
 2026-05-14 09:58:04,535 - ERROR - session_id=5277f4a9-5fbd-4d37-9079-10a6d3e4cfc0 node=saveToDB error=Error code: 400 - {'error': {'message': "tool call validation failed: parameters for tool BotResponse did not match schema: errors: [missing properties: 'field']", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=BotResponse> {"name": "Eby Mathew", "message": "hlo my name is eby", "status": "asking"} </function>'}}
 2026-05-14 09:58:13,367 - INFO - session_id=5277f4a9-5fbd-4d37-9079-10a6d3e4cfc0 current_field=message user_input='hlo my name is eby'
+2026-05-14 23:00:22,774 - INFO - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 new session created
+2026-05-14 23:00:23,474 - INFO - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 askName retry=0
+2026-05-14 23:00:29,978 - INFO - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 current_field=name user_input='my name is eby mathew'
+2026-05-14 23:00:30,803 - INFO - RAW NAME: my name is eby mathew | CLEAN NAME: eby mathew
+2026-05-14 23:00:31,007 - INFO - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 field=name input=eby mathew status=SUCCESS
+2026-05-14 23:00:31,316 - INFO - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 askEmail retry=0
+2026-05-14 23:00:38,134 - INFO - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 current_field=email user_input='eby@gmail.com'
+2026-05-14 23:00:38,788 - ERROR - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 node=validateEmail error=Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=ExtractedEmail>email= "eby@gmail.com"</function>'}}
+2026-05-14 23:00:39,405 - INFO - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 askEmail retry=1
+2026-05-14 23:00:45,913 - INFO - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 current_field=email user_input='eby@gmail.com'
+2026-05-14 23:00:46,282 - ERROR - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 node=validateEmail error=Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=ExtractedEmail>{"email": "eby@gmail.com"}<function>'}}
+2026-05-14 23:00:46,674 - INFO - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 askEmail retry=2
+2026-05-14 23:00:53,548 - INFO - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 current_field=email user_input='eby@gmail.com'
+2026-05-14 23:00:54,150 - INFO - RAW EMAIL: eby@gmail.com | CLEAN EMAIL: eby@gmail.com
+2026-05-14 23:00:54,352 - ERROR - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 node=validateEmail error=Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=validate_email_tool>{"email": "eby@gmail.com"}<function>'}}
+2026-05-14 23:00:54,662 - INFO - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 askEmail retry=3
+2026-05-14 23:01:05,263 - INFO - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 current_field=email user_input='eby@gmail.com'
+2026-05-14 23:01:05,721 - ERROR - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 node=validateEmail error=Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=ExtractedEmail>{"email": "eby@gmail.com"}<function>'}}
+2026-05-14 23:01:06,130 - INFO - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 askEmail retry=4
+2026-05-14 23:01:14,699 - INFO - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 current_field=email user_input='eby@gmail.com'
+2026-05-14 23:01:15,139 - ERROR - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 node=validateEmail error=Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=ExtractedEmail>email="eby@gmail.com"</function>'}}
+2026-05-14 23:01:15,449 - INFO - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 askEmail retry=5
+2026-05-14 23:01:24,109 - INFO - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 current_field=email user_input='eby123@gmail.com'
+2026-05-14 23:01:24,867 - ERROR - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 node=validateEmail error=Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=ExtractedEmail>email="eby123@gmail.com"}</function>'}}
+2026-05-14 23:01:25,179 - INFO - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 askEmail retry=6
+2026-05-14 23:01:32,423 - INFO - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 current_field=email user_input='name@gmail.com'
+2026-05-14 23:01:32,957 - ERROR - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 node=validateEmail error=Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=ExtractedEmail>email= name@gmail.com </function>'}}
+2026-05-14 23:01:33,363 - ERROR - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 askEmail LLM error: Error code: 400 - {'error': {'message': "tool call validation failed: parameters for tool BotResponse did not match schema: errors: [missing properties: 'field']", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=BotResponse> {"name": "email", "message": "Your email doesn\'t seem to be valid. For example, try \'john@example.com\'. Please try again.", "status": "asking"} </function>'}}
+2026-05-14 23:01:33,364 - INFO - session_id=7ec6e1e9-23c6-4165-b21e-39d00c9958b6 askEmail retry=7
