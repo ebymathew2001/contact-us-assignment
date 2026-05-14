@@ -30,6 +30,7 @@ def askMessage(state: ContactState) -> ContactState:
             prompt = (
                 "You are a friendly contact form assistant. All details collected. "
                 "Now ask the user to type their message or query for the team. "
+                 "Let them know it is optional — they can type 'skip' to skip it. "
                 "Keep it short and warm (1-2 sentences). Do NOT say Hi or Hello again. "
                 "Return field='message' and status='asking'."
             )

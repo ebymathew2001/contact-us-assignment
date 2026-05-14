@@ -1,54 +1,88 @@
-from state import ContactState
+from llm import llm
+from state import ContactState, ExtractedDescription
 from logger import logger
+
+SKIP_PHRASES = {"skip", "no", "none", "na", "n/a", "nope", "no message", "nothing"}
 
 
 def validateMessage(state: ContactState) -> ContactState:
     session_id = state["session_id"]
     raw_input = state.get("message", "").strip()
 
-    if not raw_input:
-        retry_count = state.get("retry_count", 0) + 1
-        logger.warning(f"session_id={session_id} field=message input=EMPTY retry={retry_count}")
+    # ── Empty or known skip phrase — accept immediately ──
+    if not raw_input or raw_input.lower() in SKIP_PHRASES:
+        logger.info(f"session_id={session_id} field=message status=SKIPPED")
         return {
             **state,
-            "is_valid": False,
-            "retry_count": retry_count,
-            "validation_error": "You didn't type anything. Please enter your message.",
+            "message": "",
+            "is_valid": True,
+            "retry_count": 0,
+            "validation_error": "",
             "bot_message": "",
             "system_error": {}
         }
 
-    if len(raw_input) < 10:
-        retry_count = state.get("retry_count", 0) + 1
-        logger.warning(f"session_id={session_id} field=message input=TOO_SHORT retry={retry_count}")
+    # ── Use LLM to detect skip intent and extract clean message ──
+    try:
+        structured_llm = llm.with_structured_output(ExtractedDescription)
+        extracted = structured_llm.invoke(
+            f"The user was asked for an optional message or query. Their input: '{raw_input}'. "
+            f"If they are trying to skip (saying skip, no, nothing, na etc.) set skipped=True and description=''. "
+            f"Otherwise extract their actual message and set skipped=False."
+        )
+
+        # ── Skip intent detected by LLM ──
+        if extracted.skipped:
+            logger.info(f"session_id={session_id} field=message status=SKIPPED via LLM")
+            return {
+                **state,
+                "message": "",
+                "is_valid": True,
+                "retry_count": 0,
+                "validation_error": "",
+                "bot_message": "",
+                "system_error": {}
+            }
+
+        clean_message = extracted.description.strip()
+
+        # ── Too long ──
+        if len(clean_message) > 1000:
+            retry_count = state.get("retry_count", 0) + 1
+            logger.warning(f"session_id={session_id} field=message input=TOO_LONG retry={retry_count}")
+            return {
+                **state,
+                "is_valid": False,
+                "retry_count": retry_count,
+                "validation_error": f"Your message is too long ({len(clean_message)} characters). Please keep it under 1000 characters.",
+                "bot_message": "",
+                "system_error": {}
+            }
+
+        # ── Success ──
+        logger.info(f"session_id={session_id} field=message status=SUCCESS length={len(clean_message)}")
         return {
             **state,
-            "is_valid": False,
-            "retry_count": retry_count,
-            "validation_error": f"Your message is too short ({len(raw_input)} characters). Please write at least 10 characters so we can understand your query.",
+            "message": clean_message,
+            "is_valid": True,
+            "retry_count": 0,
+            "validation_error": "",
             "bot_message": "",
             "system_error": {}
         }
 
-    if len(raw_input) > 1000:
-        retry_count = state.get("retry_count", 0) + 1
-        logger.warning(f"session_id={session_id} field=message input=TOO_LONG retry={retry_count}")
+    except Exception as e:
+        error_msg = str(e)
+        logger.error(f"session_id={session_id} node=validateMessage error={error_msg}")
         return {
             **state,
             "is_valid": False,
-            "retry_count": retry_count,
-            "validation_error": f"Your message is too long ({len(raw_input)} characters). Please keep it under 1000 characters.",
+            "retry_count": state.get("retry_count", 0) + 1,
+            "validation_error": "Something went wrong. Please try again or type 'skip'.",
             "bot_message": "",
-            "system_error": {}
+            "system_error": {
+                "node": "validateMessage",
+                "error_type": "llm_error",
+                "message": error_msg
+            }
         }
-
-    logger.info(f"session_id={session_id} field=message status=SUCCESS length={len(raw_input)}")
-    return {
-        **state,
-        "message": raw_input,
-        "is_valid": True,
-        "retry_count": 0,
-        "validation_error": "",
-        "bot_message": "",
-        "system_error": {}
-    }

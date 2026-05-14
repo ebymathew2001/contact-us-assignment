@@ -41,3 +41,8 @@ class ExtractedEmail(BaseModel):
 
 class ExtractedPhone(BaseModel):
     phone: str
+
+# add this at the bottom with the other models
+class ExtractedDescription(BaseModel):
+    description: str
+    skipped: bool
