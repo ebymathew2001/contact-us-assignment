@@ -6,7 +6,7 @@ from nodes.ask_phone import askPhone
 from nodes.validate_phone import validatePhone
 from nodes.ask_message import askMessage
 from nodes.validate_message import validateMessage
-from nodes.save_to_db import saveToDB
+from nodes.complete_form import completeForm
 from nodes.edges import (
     shouldContinueName,
     shouldContinueEmail,
@@ -19,7 +19,7 @@ __all__ = [
     "askEmail", "validateEmail",
     "askPhone", "validatePhone",
     "askMessage", "validateMessage",
-    "saveToDB",
+    "completeForm",
     "shouldContinueName", "shouldContinueEmail",
     "shouldContinuePhone", "shouldContinueMessage",
 ]

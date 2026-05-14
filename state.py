@@ -13,9 +13,9 @@ class ContactState(TypedDict):
     retry_count: int      # how many times user retried current field
     is_valid: bool        # True if last validation passed
     validation_error: str   # ← NEW: error message from last failed validation
-    final_data: dict      # complete form data after saveToDB
+    final_data: dict      # # complete form data after completeForm
     bot_message: str      # current bot message to return to browser
-    is_complete: bool     # set True by saveToDB — signals Flask to save contact + disable input
+    is_complete: bool     # set True by completeForm + disable input
     system_error: dict    # crash info: {"node": "...", "error_type": "...", "message": "..."}
                           # empty dict {} if no crash — Flask reads this after invoke()
 

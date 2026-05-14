@@ -14,4 +14,4 @@ def shouldContinuePhone(state: ContactState) -> str:
 
 
 def shouldContinueMessage(state: ContactState) -> str:
-    return "saveToDB" if state["is_valid"] else "askMessage"
+    return "completeForm" if state["is_valid"] else "askMessage"
