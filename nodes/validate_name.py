@@ -50,9 +50,10 @@ def validateName(state: ContactState) -> ContactState:
                 "system_error": {}
             }
 
-        llm_with_tools = llm.bind_tools([validate_name_tool, validate_email_tool, validate_phone_tool])
+        llm_with_tools = llm.bind_tools([validate_name_tool],
+        tool_choice={"type": "function", "function": {"name": "validate_name_tool"}})
         tool_response = llm_with_tools.invoke(
-            f"Validate this name: '{clean_name}'. Use the validate_name_tool."
+            f"Validate this name: '{clean_name}'."
         )
 
         validation_result = None

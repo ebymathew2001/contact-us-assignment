@@ -41,9 +41,12 @@ def validateEmail(state: ContactState) -> ContactState:
                 "system_error": {}
             }
 
-        llm_with_tools = llm.bind_tools([validate_name_tool, validate_email_tool, validate_phone_tool])
+        llm_with_tools = llm.bind_tools(
+        [validate_email_tool],
+        tool_choice={"type": "function", "function": {"name": "validate_email_tool"}}
+        )
         tool_response = llm_with_tools.invoke(
-            f"Validate this email address: '{clean_email}'. Use the validate_email_tool."
+            f"Validate this email address: '{clean_email}'."
         )
 
         validation_result = None
