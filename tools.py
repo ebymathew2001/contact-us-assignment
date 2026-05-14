@@ -47,14 +47,7 @@ def validate_name_tool(name: str) -> dict:
             "message": f"Each part of your name must be at least 2 characters. Please enter your full name."
         }
 
-    # ── NEW: must have at least 2 words (first + last name) ──
-    if len(words) < 2:
-        return {
-            "valid": False,
-            "error_type": "single_word_name",
-            "message": "Please enter both your first and last name."
-        }
-
+   
     return {"valid": True, "error_type": None, "message": "Name is valid."}
 
 
