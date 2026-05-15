@@ -37,6 +37,8 @@ def completeForm(state: ContactState) -> ContactState:
     except Exception as e:
         error_msg = str(e)
         logger.error(f"session_id={session_id} node=completeForm error={error_msg}")
+        # CONTRACT: is_complete=True is the signal to app.py to write to contacts table.
+# This is the ONLY place in the entire codebase that sets is_complete=True.
         return {
             **state,
             "bot_message": "Sorry, we had an issue finalising your details. Please try again.",
