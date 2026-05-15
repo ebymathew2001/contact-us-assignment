@@ -15,7 +15,10 @@ class ContactState(TypedDict):
     validation_error: str   # ← NEW: error message from last failed validation
     final_data: dict      # # complete form data after completeForm
     bot_message: str      # current bot message to return to browser
-    is_complete: bool     # set True by completeForm + disable input
+    is_complete: bool     # CONTRACT: MUST only be set to True by the `completeForm` node.
+                          # app.py's /chat endpoint reads this to trigger save_contact().
+                          # Any other node that sets is_complete=True will cause a premature save.
+                          # Default: False. Set to False in chat/start initial state.
     system_error: dict    # crash info: {"node": "...", "error_type": "...", "message": "..."}
                           # empty dict {} if no crash — Flask reads this after invoke()
 
